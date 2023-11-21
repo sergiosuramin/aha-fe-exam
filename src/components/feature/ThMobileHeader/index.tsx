@@ -3,7 +3,7 @@ import { LOGO_ICON } from '@/utils/constants'
 
 function ThMobileHeader() {
   return (
-    <div className="tw-block md:tw-hidden tw-w-[100%] tw-h-[70px] tw-p-8">
+    <div className="tw-container tw-mx-auto tw-p-8">
       <ThImageLoader
         alt="logo"
         width={35}

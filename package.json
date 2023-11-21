@@ -16,11 +16,13 @@
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.9",
     "@vercel/analytics": "^1.1.1",
+    "axios": "^1.6.2",
     "framer-motion": "^10.16.4",
     "next": "14.0.3",
     "postcss": "^8",
     "react": "^18",
     "react-dom": "^18",
+    "react-query": "^3.39.3",
     "tailwindcss": "^3.3.5",
     "typescript": "5.2.2"
   },

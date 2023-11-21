@@ -12,8 +12,8 @@ function ThMenuItem() {
   }
 
   return (
-    <div className="tw-h-[100%] tw-flex tw-justify-center tw-gap-x-16 tw-items-start md:tw-flex-col md:tw-justify-start md:tw-items-center">
-      <div className="tw-hidden tw-w-[80px] tw-h-[88px] md:tw-flex md:tw-justify-center md:tw-items-center">
+    <div className="md:tw-h-[100%] tw-flex tw-justify-center tw-gap-x-16 tw-items-start md:tw-flex-col md:tw-justify-start md:tw-items-center tw-bg-[#181818]">
+      <div className="tw-hidden tw-w-[80px] tw-h-[66px] md:tw-h-[88px] md:tw-flex md:tw-justify-center md:tw-items-center">
         <ThImageLoader
           alt="logo"
           width={35}

@@ -4,7 +4,7 @@ const withPWA = require('@ducanh2912/next-pwa').default({
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
-});
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,7 +13,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'storage.googleapis.com',
+        hostname: 'cdn.fakercloud.com',
         port: '',
         pathname: '/**',
       },
@@ -22,4 +22,3 @@ const nextConfig = {
 }
 
 module.exports = withPWA(nextConfig)
-  

@@ -34,7 +34,7 @@ export default function ThHomePage() {
   }
 
   return (
-    <div className="tw-h-[100%] tw-flex tw-flex-col">
+    <>
       <section>
         <Typography variant="h1">Search</Typography>
 
@@ -68,10 +68,10 @@ export default function ThHomePage() {
       <div className="tw-border tw-border-gray-50/10 tw-my-12" />
 
       <section className="tw-mt-auto">
-        <ThButton variant="secondary" className="md:!tw-max-w-[343px]">
+        <ThButton variant="primary" className="md:!tw-max-w-[343px]">
           SEARCH
         </ThButton>
       </section>
-    </div>
+    </>
   )
 }

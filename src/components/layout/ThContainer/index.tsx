@@ -13,7 +13,7 @@ function ThContainer({
   className = '',
 }: ThContainerProps) {
   return (
-    <Container maxWidth={maxWidth} className={`tw-py-8 ${className}`}>
+    <Container maxWidth={maxWidth} className={`${className}`}>
       {children}
     </Container>
   )
