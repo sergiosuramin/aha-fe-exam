@@ -101,22 +101,23 @@ export const theme = createTheme({
         {
           props: { variant: 'primary' },
           style: {
-            backgroundColor: '#FF9B33 !important',
-            color: '#fff',
+            backgroundColor: '#FFF !important',
+            color: '#000',
             width: '100%',
             height: '40px',
             boxShadow: 'none',
-            opacity: 1,
+            border: '1px solid #FFF',
             transition: '0.3s',
             borderRadius: '3px !important',
             ':hover': {
-              backgroundColor: '#6c6c6c',
-              color: '#fff',
-              opacity: 0.8,
+              backgroundColor: '#121212 !important',
+              boxShadow: 'none',
+              color: '#fff !important',
+              border: '1px solid #fff !important',
             },
             ':disabled': {
-              backgroundColor: '#E7EAED',
-              color: '#A0A5AB',
+              borderColor: '#F3F6F9',
+              color: 'white',
             },
           },
         },
@@ -132,7 +133,7 @@ export const theme = createTheme({
             transition: '0.3s',
             borderRadius: '3px !important',
             ':hover': {
-              backgroundColor: 'rgba(0, 59, 209, 0.1)',
+              backgroundColor: '#FFF',
             },
             ':disabled': {
               borderColor: '#A0A5AB',
@@ -150,11 +151,34 @@ export const theme = createTheme({
             boxShadow: 'none',
             border: '1px solid #FFF',
             transition: '0.3s',
-            borderRadius: '3px !important',
+            borderRadius: '20px !important',
             ':hover': {
               backgroundColor: '#121212 !important',
               boxShadow: 'none',
               color: '#fff !important',
+              border: '1px solid #fff !important',
+            },
+            ':disabled': {
+              borderColor: '#F3F6F9',
+              color: 'white',
+            },
+          },
+        },
+        {
+          props: { variant: 'outlined' },
+          style: {
+            backgroundColor: '#121212 !important',
+            color: '#FFF',
+            width: '100%',
+            height: '40px',
+            boxShadow: 'none',
+            border: '1px solid #FFF',
+            transition: '0.3s',
+            borderRadius: '20px !important',
+            ':hover': {
+              backgroundColor: '#FFF !important',
+              boxShadow: 'none',
+              color: '#000 !important',
               border: '1px solid #fff !important',
             },
             ':disabled': {

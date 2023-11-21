@@ -68,7 +68,7 @@ export default function ThHomePage() {
       <div className="tw-border tw-border-gray-50/10 tw-my-12" />
 
       <section className="tw-mt-auto">
-        <ThButton variant="contained" className="md:!tw-max-w-[343px]">
+        <ThButton variant="secondary" className="md:!tw-max-w-[343px]">
           SEARCH
         </ThButton>
       </section>
