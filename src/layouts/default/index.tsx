@@ -1,20 +1,17 @@
 import { ReactNode } from 'react'
 
+import ThSimpleMenu from '@/components/layout/ThSimpleMenu'
+
 interface LayoutProps {
   children: ReactNode
 }
 
 const Defaultlayout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="tw-flex tw-flex-col tw-min-h-screen">
-      {/* <PfHeader /> */}
-      <main
-        className="tw-grow tw-px-8 md:tw-px-0"
-      >
-        {children}
-      </main>
-      {/* <PfFooter /> */}
-    </div>
+    <>
+      <ThSimpleMenu />
+      <main className="tw-min-h-screen tw-w-[100%]">{children}</main>
+    </>
   )
 }
 
