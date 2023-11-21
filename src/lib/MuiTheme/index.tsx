@@ -189,11 +189,27 @@ export const theme = createTheme({
     MuiSlider: {
       styleOverrides: {
         rail: {
-          backgroundColor: '#a0a5ab',
+          backgroundColor: 'white !important',
+          borderWidth: '5px !important',
         },
         track: {
-          backgroundColor: '#dfcb14',
-          border: '#dfcb14',
+          background: 'linear-gradient(to right, #FF5C01, #FFD25F) !important',
+          border: '#FFD25F',
+          height: '10px !important',
+        },
+        mark: {
+          backgroundColor: 'transparent !important',
+        },
+        markLabel: {
+          color: 'white',
+          fontSize: '14px !important',
+        },
+        thumb: {
+          width: '24px',
+          height: '24px',
+          background: '#181818 !important',
+          borderWidth: '6px',
+          borderColor: '#FFD25F !important',
         },
       },
     },
@@ -224,44 +240,38 @@ export const theme = createTheme({
   typography: {
     fontFamily: '__Ubuntu_5449ac',
     display1: {
-      fontSize: '40px',
-      fontWeight: 700,
+      fontSize: '48px',
       lineHeight: '60px',
       color: 'white',
     },
     display2: {
       fontSize: '36px',
-      fontWeight: 700,
       lineHeight: '54px',
       color: 'white',
     },
     display3: {
       fontSize: '32px',
-      fontWeight: 700,
       lineHeight: '48px',
       color: 'white',
     },
     display4: {
       fontSize: '28px',
-      fontWeight: 700,
       lineHeight: '42px',
       color: 'white',
     },
     h1: {
       fontSize: '24px',
-      fontWeight: 700,
+      // fontWeight: 700,
       lineHeight: '36px',
       color: 'white',
     },
     h2: {
       fontSize: '21px',
-      fontWeight: 700,
       lineHeight: '32px',
       color: 'white',
     },
     h3: {
       fontSize: '18px',
-      fontWeight: 700,
       lineHeight: '28px',
       color: 'white',
     },
@@ -300,7 +310,6 @@ export const theme = createTheme({
     textButtonDanger: {
       fontSize: '12px',
       lineHeight: '18px',
-      fontWeight: 700,
       textDecoration: 'underline',
       cursor: 'pointer',
       color: '#cf1c0c',
@@ -308,7 +317,6 @@ export const theme = createTheme({
     textButtonLarge: {
       fontSize: '16px',
       lineHeight: '18px',
-      fontWeight: 700,
       textDecoration: 'underline',
       cursor: 'pointer',
       color: '#FF9B33',
@@ -339,14 +347,12 @@ export const theme = createTheme({
     },
     labelBig: {
       fontSize: '14px',
-      fontWeight: 700,
       lineHeight: '18px',
       letterSpacing: '6%',
       color: 'white',
     },
     labelSmall: {
       fontSize: '11px',
-      fontWeight: 700,
       lineHeight: '18px',
       letterSpacing: '6%',
       color: 'white',
