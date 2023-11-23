@@ -35,7 +35,7 @@ export const ScreenSizeProvider: React.FC<ScreenSizeProviderProps> = ({
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')) // <768
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('md', 'lg')) // 768 <= x <= 1024
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg')) // >1024
-  const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('xl')) // >1536
+  const isExtraLargeScreen = useMediaQuery(theme.breakpoints.up('xl')) // >1440
 
   return (
     <ScreenSizeContext.Provider

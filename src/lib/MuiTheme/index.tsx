@@ -210,6 +210,13 @@ export const theme = createTheme({
         },
       },
     },
+    MuiSkeleton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgb(249 250 251 / 0.05) !important',
+        },
+      },
+    },
     MuiSlider: {
       styleOverrides: {
         rail: {
