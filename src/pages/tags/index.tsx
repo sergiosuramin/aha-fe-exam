@@ -1,25 +1,38 @@
 import { Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
 
-import ThTagsPage from '@/components/pages/ThTagsPage'
+import ThTagsList from '@/components/feature/ThTagsList'
+import { TagInterface } from '@/models'
 
 export default function TagsPage() {
+  const [tagList, setTagList] = useState<TagInterface[]>([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const tagsResponse = await fetch(
+          'https://avl-frontend-exam.herokuapp.com/api/tags'
+        )
+
+        const data = await tagsResponse.json()
+        console.log('lala-- data--', data)
+        setTagList(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  console.log('lala-- tagList--', tagList)
+
   return (
-    <div className="tw-container md:tw-h-screen xl:tw-max-w-max tw-mx-auto tw-grow tw-pb-16 tw-px-8 md:tw-p-16">
+    <div className="tw-container tw-mx-auto tw-pb-16 tw-px-8 md:tw-p-16">
       <div className="tw-mb-4">
         <Typography variant="h1">Tags</Typography>
       </div>
-      <ThTagsPage />
+      <ThTagsList list={tagList} />
     </div>
   )
-
-  // return (
-  //   <div className="tw-flex">
-  //     {/* <div className="md:tw-w-[625px] lg:tw-w-[825px] md:tw-h-screen md:tw-mx-auto tw-p-8"> */}
-  //     <div className="tw-container md:tw-h-screen xl:tw-max-w-7xl tw-mx-auto tw-grow tw-pb-16 tw-px-8 md:tw-p-16">
-  //       <ThHomePage />
-  //     </div>
-
-  //     <div className="tw-bg-white tw-hidden xl:tw-block tw-w-[375px]">hehe</div>
-  //   </div>
-  // )
 }
