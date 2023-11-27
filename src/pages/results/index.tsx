@@ -82,16 +82,17 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
 
     // no changes in the query, safe to ignnore the hooks warning
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [keyword, page])
+  }, [page])
 
   const renderUserList = () => {
-    if (resultList.length === 0) {
-      return (
-        <Typography variant="subtitle2">
-          There is no user whose name is &quot;{keyword}&quot;
-        </Typography>
-      )
-    }
+    console.log('lala-- length--', resultList.length)
+    // if (resultList.length === 0) {
+    //   return (
+    //     <Typography variant="subtitle2">
+    //       There is no user whose name is &quot;{keyword}&quot;
+    //     </Typography>
+    //   )
+    // }
 
     return (
       <div className="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
@@ -102,6 +103,7 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
             totalPages={totalPages}
             isLast={index === resultList.length - 1}
             setNewLimit={() => {
+              console.log('lala-- set new limit')
               setPage(page + 1)
             }}
           />

@@ -17,12 +17,16 @@ const ThUserCard = ({ user, isLast, setNewLimit }: UserCardProps) => {
   useEffect(() => {
     if (!cardRef?.current) return
 
-    const observer = new IntersectionObserver(([entry]) => {
-      if (isLast && entry.isIntersecting) {
-        setNewLimit()
-        observer.unobserve(entry.target)
-      }
-    })
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        console.log('lala-- entry--', entry.isIntersecting, isLast)
+        if (isLast && entry.isIntersecting) {
+          setNewLimit()
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 1 }
+    )
 
     observer.observe(cardRef.current)
     // only observe islast

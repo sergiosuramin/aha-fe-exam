@@ -21,14 +21,6 @@ export default function ThHomePage() {
     setPageSize(typeof value === 'number' ? value : 10)
   }
 
-  const generateSearchUrl = () => {
-    const url = 'results'
-    // &page=1&pageSize=${pageSize}
-
-    if (keyword !== '') return `${url}?keyword=${keyword}`
-    else return url
-  }
-
   const didmount = () => {
     resetQueries()
   }
@@ -73,7 +65,7 @@ export default function ThHomePage() {
       <div className="tw-border tw-border-gray-50/10 tw-my-12" />
 
       <section className="tw-mt-auto">
-        <NextLink href={generateSearchUrl()}>
+        <NextLink href={`/results?keyword=${keyword}`}>
           <ThButton variant="primary" className="md:!tw-max-w-[343px]">
             SEARCH
           </ThButton>
