@@ -1,8 +1,10 @@
 import { Typography } from '@mui/material'
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import ThUserCard from '@/components/feature/ThUserCard'
+import ThImageLoader from '@/components/ui/ThImageLoader'
 import ThSkeletonLoading from '@/components/ui/ThSkeletonLoading'
 import { useScreenSize } from '@/context/MediaQuery'
 import { useQueryState } from '@/context/QueryFilter'
@@ -16,6 +18,7 @@ interface ResultProps {
 }
 
 export default function ResultPage({ query, API_URL }: ResultProps) {
+  const router = useRouter()
   const { isSmallScreen, isMediumScreen } = useScreenSize()
   const { keyword, page, pageSize, setPage, setKeyword } = useQueryState()
   const { setQueryFilter } = useQueryParams()
@@ -85,14 +88,13 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }, [page])
 
   const renderUserList = () => {
-    console.log('lala-- length--', resultList.length)
-    // if (resultList.length === 0) {
-    //   return (
-    //     <Typography variant="subtitle2">
-    //       There is no user whose name is &quot;{keyword}&quot;
-    //     </Typography>
-    //   )
-    // }
+    if (resultList.length === 0) {
+      return (
+        <Typography variant="subtitle2">
+          There is no user whose name is &quot;{keyword}&quot;
+        </Typography>
+      )
+    }
 
     return (
       <div className="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
@@ -103,7 +105,6 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
             totalPages={totalPages}
             isLast={index === resultList.length - 1}
             setNewLimit={() => {
-              console.log('lala-- set new limit')
               setPage(page + 1)
             }}
           />
@@ -113,17 +114,28 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }
 
   return (
-    <div className="tw-container tw-mx-auto tw-pb-16 tw-px-8 md:tw-p-16">
-      <div className="tw-mb-4 tw-ml-12">
-        <Typography variant="h1">Results</Typography>
-      </div>
+    <div className="md:tw-pl-16">
+      <div className="tw-container tw-mx-auto tw-pb-16 tw-px-8 md:tw-p-16">
+        <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 -tw-ml-12">
+          <div className="tw-cursor-pointer" onClick={() => router.push('/')}>
+            <ThImageLoader
+              alt="left-cv"
+              src="/assets/svg/chevron_left.svg"
+              width={26}
+              height={26}
+            />
+          </div>
 
-      {isFetching ? (
-        <ThSkeletonLoading usersSkeleton skeletonToShow={skeletonToShow} />
-      ) : (
-        // <ThTagsList list={tagList} />
-        renderUserList()
-      )}
+          <Typography variant="h1">Results</Typography>
+        </div>
+
+        {isFetching ? (
+          <ThSkeletonLoading usersSkeleton skeletonToShow={skeletonToShow} />
+        ) : (
+          // <ThTagsList list={tagList} />
+          renderUserList()
+        )}
+      </div>
     </div>
   )
 }

@@ -19,7 +19,6 @@ const ThUserCard = ({ user, isLast, setNewLimit }: UserCardProps) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log('lala-- entry--', entry.isIntersecting, isLast)
         if (isLast && entry.isIntersecting) {
           setNewLimit()
           observer.unobserve(entry.target)

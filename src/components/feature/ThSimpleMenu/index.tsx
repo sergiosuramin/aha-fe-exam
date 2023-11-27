@@ -31,7 +31,13 @@ function ThSimpleMenu() {
         </div>
 
         {MENU_ITEMS.map((menu, index) => {
-          const isActive = router.pathname === menu.path
+          /**
+           * to make sure /results will make sure "Home" in simple menu flagged as active.
+           * this is much more reasonable than making ternary statement in home page.
+           */
+          const isActive =
+            router.pathname === menu.path ||
+            (menu.path === '/' && router.pathname.startsWith('/results'))
 
           if (isActive) {
             return (

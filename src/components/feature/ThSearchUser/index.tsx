@@ -7,7 +7,7 @@ import ThSlider from '@/components/ui/ThSlider'
 import ThTextfield from '@/components/ui/ThTextField'
 import { useQueryState } from '@/context/QueryFilter'
 
-export default function ThHomePage() {
+export default function ThSearchUser() {
   const { keyword, pageSize, setKeyword, setPageSize, resetQueries } =
     useQueryState()
 
