@@ -5,6 +5,7 @@ import { Ubuntu } from 'next/font/google'
 
 import '@/styles/globals.css'
 import { ScreenSizeProvider } from '@/context/MediaQuery'
+import { QueryStateProvider } from '@/context/QueryFilter'
 import { default as Defaultlayout } from '@/layouts/default'
 import { theme } from '@/lib/MuiTheme'
 
@@ -14,11 +15,13 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`tw-min-h-screen ${ubuntuFont.className}`}>
       <ThemeProvider theme={theme}>
-        <ScreenSizeProvider>
-          <Defaultlayout>
-            <Component {...pageProps} />
-          </Defaultlayout>
-        </ScreenSizeProvider>
+        <QueryStateProvider>
+          <ScreenSizeProvider>
+            <Defaultlayout>
+              <Component {...pageProps} />
+            </Defaultlayout>
+          </ScreenSizeProvider>
+        </QueryStateProvider>
       </ThemeProvider>
       <Analytics />
     </div>

@@ -1,14 +1,19 @@
 import { Typography } from '@mui/material'
+import { GetStaticProps } from 'next'
 import { useEffect, useState } from 'react'
 
 import ThTagsList from '@/components/feature/ThTagsList'
 import ThSkeletonLoading from '@/components/ui/ThSkeletonLoading'
 import { useScreenSize } from '@/context/MediaQuery'
+import { useQueryState } from '@/context/QueryFilter'
+import useQueryParams from '@/hooks/queryParams'
 import { TagInterface } from '@/models'
 
-export default function TagsPage() {
+export default function TagsPage({ API_URL }: { API_URL: string }) {
   const { isSmallScreen, isMediumScreen, isLargeScreen, isExtraLargeScreen } =
     useScreenSize()
+  const { page, pageSize, resetQueries } = useQueryState()
+  const { setQueryFilter } = useQueryParams()
   const [isFetching, setIsFetching] = useState<boolean>(false)
   const [tagList, setTagList] = useState<TagInterface[]>([])
 
@@ -22,28 +27,41 @@ export default function TagsPage() {
           ? 5
           : 1
 
+  const didmount = () => {
+    // reset query filter on page visit
+    resetQueries()
+  }
+
+  useEffect(() => {
+    didmount()
+    // didmount only, safe to ignore hooks warning
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   useEffect(() => {
     const fetchData = async () => {
+      const endpoint = `${API_URL}/tags${setQueryFilter({
+        page,
+        pageSize,
+      })}`
+
       setIsFetching(true)
       try {
-        const tagsResponse = await fetch(
-          'https://avl-frontend-exam.herokuapp.com/api/tags'
-        )
-
+        const tagsResponse = await fetch(endpoint)
         const data = await tagsResponse.json()
-        console.log('lala-- data--', data)
+
         setTagList(data)
         setIsFetching(false)
       } catch (error) {
         setIsFetching(false)
-        console.error('Error fetching data:', error)
       }
     }
 
     fetchData()
-  }, [])
 
-  console.log('lala-- tagList--', tagList)
+    // no changes in the query, safe to ignnore the hooks warning
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="tw-container tw-mx-auto tw-pb-16 tw-px-8 md:tw-p-16">
@@ -58,4 +76,14 @@ export default function TagsPage() {
       )}
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
+
+  return {
+    props: {
+      API_URL,
+    },
+  }
 }

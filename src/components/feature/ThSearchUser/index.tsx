@@ -1,37 +1,43 @@
 import { Typography } from '@mui/material'
-import { useState } from 'react'
+import NextLink from 'next/link'
+import { useEffect } from 'react'
 
+import ThButton from '@/components/ui/ThButton'
 import ThSlider from '@/components/ui/ThSlider'
 import ThTextfield from '@/components/ui/ThTextField'
-
-import ThButton from '../ui/ThButton'
-
-interface StateProps {
-  keyword: string | ''
-  limit?: number | number[] | 0
-}
+import { useQueryState } from '@/context/QueryFilter'
 
 export default function ThHomePage() {
-  const [queryState, setState] = useState<StateProps>({
-    keyword: '',
-    limit: 10, // default limit
-  })
+  const { keyword, pageSize, setKeyword, setPageSize, resetQueries } =
+    useQueryState()
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target
+    const { value } = event.target
 
-    setState((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
+    setKeyword(value)
   }
 
   const onSliderChange = (value: number | number[]) => {
-    setState((prev) => ({
-      ...prev,
-      limit: value,
-    }))
+    setPageSize(typeof value === 'number' ? value : 10)
   }
+
+  const generateSearchUrl = () => {
+    const url = 'results'
+    // &page=1&pageSize=${pageSize}
+
+    if (keyword !== '') return `${url}?keyword=${keyword}`
+    else return url
+  }
+
+  const didmount = () => {
+    resetQueries()
+  }
+
+  useEffect(() => {
+    didmount()
+    // didmount only, safe to ignore
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
@@ -43,7 +49,7 @@ export default function ThHomePage() {
           label=""
           placeholder="Keyword"
           name="keyword"
-          value={queryState.keyword}
+          value={keyword}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             onChange(event)
           }
@@ -58,19 +64,20 @@ export default function ThHomePage() {
         </Typography>
 
         <Typography variant="display1" className="!tw-font-bold">
-          {queryState.limit}{' '}
-          <Typography variant="subtitle1Reg">Results</Typography>
+          {pageSize} <Typography variant="subtitle1Reg">Results</Typography>
         </Typography>
 
-        <ThSlider value={queryState.limit ?? 0} onChange={onSliderChange} />
+        <ThSlider value={pageSize ?? 0} onChange={onSliderChange} />
       </section>
 
       <div className="tw-border tw-border-gray-50/10 tw-my-12" />
 
       <section className="tw-mt-auto">
-        <ThButton variant="primary" className="md:!tw-max-w-[343px]">
-          SEARCH
-        </ThButton>
+        <NextLink href={generateSearchUrl()}>
+          <ThButton variant="primary" className="md:!tw-max-w-[343px]">
+            SEARCH
+          </ThButton>
+        </NextLink>
       </section>
     </>
   )

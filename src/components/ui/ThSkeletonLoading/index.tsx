@@ -27,14 +27,15 @@ const ThSkeletonLoading = ({
     return (
       <div className="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
         {skeletonArray.map((_, index) => (
-          <div key={index}>
+          <div key={index} className="tw-w-full">
             <Skeleton
               variant="rounded"
-              width={150}
-              height={150}
-              className="!tw-mb-2"
+              className="!tw-mb-2 !tw-w-[335px] !tw-h-[222px] md:!tw-w-[219px] md:!tw-h-[146px]"
             />
-            <Skeleton variant="text" width={150} className="!tw-mb-2" />
+            <Skeleton
+              variant="text"
+              className="!tw-mb-2 !tw-w-[335px] md:!tw-w-[219px]"
+            />
             <Skeleton variant="text" width={80} />
           </div>
         ))}

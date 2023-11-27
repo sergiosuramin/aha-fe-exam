@@ -3,3 +3,18 @@ export interface TagInterface {
   name?: string | null
   count?: number | null
 }
+
+export interface ResultInterface {
+  id: string
+  name: string
+  username: string
+  avater: string
+  isFollowing: boolean
+}
+
+export interface DynamicInterface {
+  keyword?: string
+  page?: string | number
+  pageSize?: string | number
+  [key: string]: string | number | unknown | undefined | null
+}

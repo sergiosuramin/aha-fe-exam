@@ -5,7 +5,7 @@ import ThImageLoader from '@/components/ui/ThImageLoader'
 import { useScreenSize } from '@/context/MediaQuery'
 import { LOGO_ICON, MENU_ITEMS } from '@/utils/constants'
 
-function ThMenuItem() {
+function ThSimpleMenu() {
   const { isSmallScreen } = useScreenSize()
   const router = useRouter()
 
@@ -83,4 +83,4 @@ function ThMenuItem() {
   )
 }
 
-export default ThMenuItem
+export default ThSimpleMenu
