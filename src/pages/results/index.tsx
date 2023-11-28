@@ -89,7 +89,7 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }, [page])
 
   const renderUserList = () => {
-    if (!!resultList) {
+    if (resultList.length > 0) {
       return (
         <div className="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 md:tw-place-items-start lg:tw-grid-cols-3 tw-gap-y-8">
           {resultList.map((user, index) => (
