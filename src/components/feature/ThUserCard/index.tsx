@@ -2,10 +2,11 @@ import { Typography } from '@mui/material'
 import { useEffect, useRef } from 'react'
 
 import ThImageLoader from '@/components/ui/ThImageLoader'
-import { ResultInterface } from '@/models'
+import { useScreenSize } from '@/context/MediaQuery'
+import { FriendInterface } from '@/models'
 
 interface UserCardProps {
-  user: ResultInterface
+  user: FriendInterface
   totalPages: number
   isLast: boolean
   setNewLimit: () => void
@@ -13,6 +14,7 @@ interface UserCardProps {
 
 const ThUserCard = ({ user, isLast, setNewLimit }: UserCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null)
+  const { isSmallScreen } = useScreenSize()
 
   useEffect(() => {
     if (!cardRef?.current) return
@@ -33,18 +35,18 @@ const ThUserCard = ({ user, isLast, setNewLimit }: UserCardProps) => {
   }, [isLast])
 
   return (
-    <div ref={cardRef} className="tw-w-full">
+    <div ref={cardRef}>
       <div className="!tw-mb-2 !tw-w-[335] !tw-h-[222px] md:!tw-w-[219px] md:!tw-h-[146px]">
         <ThImageLoader
           alt="user-pp"
-          width={219}
-          height={146}
+          width={isSmallScreen ? 335 : 219}
+          height={isSmallScreen ? 222 : 146}
           src={'/assets/img/dog_default_pp.webp'}
         />
       </div>
 
       <Typography variant="subtitle2">{user.name}</Typography>
-      <Typography variant="labelSmall">By @{user.username}</Typography>
+      <Typography variant="labelSmall">By {user.username}</Typography>
     </div>
   )
 }

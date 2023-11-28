@@ -65,7 +65,7 @@ export default function ThSearchUser() {
       <div className="tw-border tw-border-gray-50/10 tw-my-12" />
 
       <section className="tw-mt-auto">
-        <NextLink href={`/results?keyword=${keyword}`}>
+        <NextLink href={`/results?keyword=${keyword}&pageSize=${pageSize}`}>
           <ThButton variant="primary" className="md:!tw-max-w-[343px]">
             SEARCH
           </ThButton>

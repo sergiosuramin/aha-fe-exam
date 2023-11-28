@@ -3,13 +3,15 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import ThFriendList from '@/components/feature/ThFriendList'
 import ThUserCard from '@/components/feature/ThUserCard'
 import ThImageLoader from '@/components/ui/ThImageLoader'
 import ThSkeletonLoading from '@/components/ui/ThSkeletonLoading'
+import ThTabs from '@/components/ui/ThTabs'
 import { useScreenSize } from '@/context/MediaQuery'
 import { useQueryState } from '@/context/QueryFilter'
 import useQueryParams from '@/hooks/queryParams'
-import { DynamicInterface, ResultInterface } from '@/models'
+import { DynamicInterface, FriendInterface } from '@/models'
 
 interface ResultProps {
   API_URL: string
@@ -20,10 +22,11 @@ interface ResultProps {
 export default function ResultPage({ query, API_URL }: ResultProps) {
   const router = useRouter()
   const { isSmallScreen, isMediumScreen } = useScreenSize()
-  const { keyword, page, pageSize, setPage, setKeyword } = useQueryState()
+  const { keyword, page, pageSize, setPage, updateDefaultQueries } =
+    useQueryState()
   const { setQueryFilter } = useQueryParams()
   const [isFetching, setIsFetching] = useState<boolean>(false)
-  const [resultList, setResultList] = useState<ResultInterface[]>([])
+  const [resultList, setResultList] = useState<FriendInterface[]>([])
   const [totalPages, setTotalPages] = useState<number>(0)
 
   const skeletonToShow = isSmallScreen ? 1 : isMediumScreen ? 2 : 3
@@ -32,8 +35,7 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
     setPage(1)
 
     if (!!query) {
-      const { keyword } = query ?? {}
-      setKeyword(keyword as string)
+      updateDefaultQueries(query)
     }
   }
 
@@ -114,9 +116,9 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }
 
   return (
-    <div className="md:tw-pl-16">
-      <div className="tw-container tw-mx-auto tw-pb-16 tw-px-8 md:tw-p-16">
-        <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 -tw-ml-12">
+    <div className="md:tw-pl-16 xl:tw-flex">
+      <div className="tw-container tw-mr-auto tw-pb-16 tw-px-8 md:tw-p-16 xl:tw-max-w-[975px]">
+        <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 md:-tw-ml-12">
           <div className="tw-cursor-pointer" onClick={() => router.push('/')}>
             <ThImageLoader
               alt="left-cv"
@@ -132,9 +134,23 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
         {isFetching ? (
           <ThSkeletonLoading usersSkeleton skeletonToShow={skeletonToShow} />
         ) : (
-          // <ThTagsList list={tagList} />
           renderUserList()
         )}
+      </div>
+
+      <div className="tw-bg-[#181818] tw-hidden xl:tw-block tw-w-[375px] tw-min-h-screen tw-fixed tw-right-0 tw-bottom-0 tw-top-0">
+        <ThTabs
+          tabs={[
+            {
+              title: 'Followers',
+              component: <ThFriendList />,
+            },
+            {
+              title: 'Following',
+              component: <ThFriendList following />,
+            },
+          ]}
+        />
       </div>
     </div>
   )

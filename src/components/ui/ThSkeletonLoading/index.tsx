@@ -45,17 +45,14 @@ const ThSkeletonLoading = ({
 
   if (friendsSkeleton) {
     return (
-      <div className="tw-grid tw-place-items-center tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 xl:tw-grid-cols-5 tw-gap-6">
+      <div>
         {skeletonArray.map((_, index) => (
-          <div key={index}>
-            <Skeleton
-              variant="rounded"
-              width={150}
-              height={150}
-              className="!tw-mb-2"
-            />
-            <Skeleton variant="text" width={150} className="!tw-mb-2" />
-            <Skeleton variant="text" width={80} />
+          <div key={index} className="tw-flex tw-gap-6 tw-mb-4">
+            <Skeleton variant="rounded" width={50} height={50} />
+            <div>
+              <Skeleton variant="text" width={120} />
+              <Skeleton variant="text" width={120} />
+            </div>
           </div>
         ))}
       </div>

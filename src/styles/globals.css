@@ -33,3 +33,44 @@ body,
 #root {
   height: 100%;
 }
+
+/* START: scrollbar */
+/* For WebKit-based browsers (such as Safari and Chrome) */
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  /* display: none; */
+  width: 6px;
+}
+
+/* Define the custom scrollbar track */
+.tw-overflow-y-scroll {
+  scrollbar-width: thin !important;
+  scrollbar-color: #9fa1a7; /* Customize the colors as needed */
+}
+
+/* Define the custom scrollbar thumb */
+.tw-overflow-y-scroll::-webkit-scrollbar-thumb {
+  background-color: #9fa1a7; /* Customize the color as needed */
+  border-radius: 6px;
+}
+
+/* Define the custom scrollbar thumb on hover */
+.tw-overflow-y-scroll:hover::-webkit-scrollbar-thumb {
+  background-color: #9fa1a7; /* Customize the color as needed */
+}
+
+/* For Firefox */
+/* Note: Firefox does not support changing the width of the scrollbar */
+/* The following styles only change the colors */
+/* You can adjust the colors to fit your design */
+
+/* To hide the default scrollbar in Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* To style the scrollbar */
+html {
+  scrollbar-color: #9fa1a7 #f1f1f1;
+}
+/* END: scrollbar */

@@ -1,3 +1,5 @@
+import { FriendInterface } from '@/models'
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function buildQueryStringV2(
   queryConstants: Record<string, any>
@@ -57,4 +59,19 @@ export function generateMarks({
     value: Math.round(index * step),
     label: Math.round(index * step).toString(),
   }))
+}
+
+export function filterIsFollowing(friends: FriendInterface[]) {
+  return friends.filter((friend) => friend.isFollowing === true)
+}
+
+export function toggleFollowingStatus(
+  friendId: string,
+  friends: FriendInterface[]
+) {
+  return friends.map((friend) =>
+    friend.id === friendId
+      ? { ...friend, isFollowing: !friend.isFollowing }
+      : friend
+  )
 }

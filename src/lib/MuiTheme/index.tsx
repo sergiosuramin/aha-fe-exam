@@ -244,6 +244,26 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTabs: {
+      styleOverrides: {
+        indicator: {
+          backgroundColor: '#FFF',
+        },
+        root: {
+          selected: {
+            color: '#FFF !important',
+            fontWeight: '700',
+          },
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          color: '#929292 !important',
+        },
+      },
+    },
   },
   palette: {
     primary: {

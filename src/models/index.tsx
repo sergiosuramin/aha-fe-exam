@@ -4,7 +4,7 @@ export interface TagInterface {
   count?: number | null
 }
 
-export interface ResultInterface {
+export interface FriendInterface {
   id: string
   name: string
   username: string
