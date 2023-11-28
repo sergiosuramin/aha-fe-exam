@@ -7,9 +7,9 @@ import { LOGO_ICON } from '@/utils/constants'
 function ThMobileHeader() {
   const router = useRouter()
 
-  const isResultPage = router.pathname.startsWith('/results')
+  const isNotHomePage = router.pathname !== '/'
 
-  if (isResultPage) {
+  if (isNotHomePage) {
     return (
       <div className="tw-container tw-mx-auto tw-px-4 tw-py-5">
         <div className="tw-flex tw-items-center tw-gap-x-4">

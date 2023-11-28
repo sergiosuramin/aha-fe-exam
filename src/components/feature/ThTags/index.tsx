@@ -10,21 +10,21 @@ const ThTags = ({ tag }: TagsProps) => {
   return (
     <div>
       <div className="tw-flex tw-w-[150px] tw-h-[150px] tw-rounded-[10px] tw-bg-gray-50/5 tw-p-2">
-        <div className="tw-mt-auto tw-border-[8px] tw-rounded-[8px] tw-p-2 tw-max-w-[136px]">
-          <Typography variant="h1" className="!tw-font-bold !tw-line-clamp-1">
+        <div className="tw-mt-auto tw-border-[4px] tw-rounded-[8px] tw-p-2 tw-max-w-[136px]">
+          <Typography variant="h3" className="!tw-font-bold !tw-line-clamp-1">
             {tag.name ?? ''}
           </Typography>
         </div>
       </div>
 
-      <div className="tw-mt-2 tw-flex tw-flex-col tw-gap-y-2">
+      <div className="tw-mt-4 md:tw-mt-2 tw-flex tw-flex-col">
         <div className="tw-max-w-[136px]">
           <Typography variant="subtitle1Reg" className="!tw-line-clamp-1">
             {tag.name ?? ''}
           </Typography>
         </div>
         <Typography variant="subtitle2Reg" className="!tw-text-gray-100/50">
-          {tag.count ?? ''} Results
+          {tag.count ?? ''} Questions
         </Typography>
       </div>
     </div>

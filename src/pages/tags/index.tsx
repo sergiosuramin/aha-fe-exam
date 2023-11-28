@@ -63,17 +63,33 @@ export default function TagsPage({ API_URL }: { API_URL: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return (
-    <div className="tw-container tw-mx-auto tw-pb-16 tw-px-8 md:tw-p-16">
-      <div className="tw-mb-4 tw-ml-12">
-        <Typography variant="h1">Tags</Typography>
-      </div>
+  const renderTags = () => {
+    if (tagList.length > 0) {
+      return <ThTagsList list={tagList} />
+    }
 
-      {isFetching ? (
-        <ThSkeletonLoading tagsSkeleton skeletonToShow={skeletonToShow} />
-      ) : (
-        <ThTagsList list={tagList} />
-      )}
+    return (
+      <Typography variant="subtitle2">
+        There is no tags available right now.
+      </Typography>
+    )
+  }
+
+  return (
+    <div className="md:tw-pl-16">
+      <div className="tw-container tw-mx-auto tw-pb-16 tw-pt-4 tw-px-6 md:tw-px-[88px] md:tw-py-[84px] xl:tw-max-w-[1000px]">
+        <div className="tw-mb-4">
+          <Typography variant={isSmallScreen ? 'h1' : 'display3'}>
+            Tags
+          </Typography>
+        </div>
+
+        {isFetching ? (
+          <ThSkeletonLoading tagsSkeleton skeletonToShow={skeletonToShow} />
+        ) : (
+          renderTags()
+        )}
+      </div>
     </div>
   )
 }
