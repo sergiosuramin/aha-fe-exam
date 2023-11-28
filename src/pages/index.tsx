@@ -1,6 +1,5 @@
-import ThFriendList from '@/components/feature/ThFriendList'
 import ThSearchUser from '@/components/feature/ThSearchUser'
-import ThTabs from '@/components/ui/ThTabs'
+import ThFriendlistTabsLayout from '@/components/layout/ThFriendlistTabsLayout'
 
 export default function HomePage() {
   return (
@@ -9,20 +8,7 @@ export default function HomePage() {
         <ThSearchUser />
       </div>
 
-      <div className="tw-bg-[#181818] tw-hidden xl:tw-block tw-w-[375px] tw-min-h-screen">
-        <ThTabs
-          tabs={[
-            {
-              title: 'Followers',
-              component: <ThFriendList />,
-            },
-            {
-              title: 'Following',
-              component: <ThFriendList following />,
-            },
-          ]}
-        />
-      </div>
+      <ThFriendlistTabsLayout />
     </div>
   )
 }

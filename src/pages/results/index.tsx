@@ -3,11 +3,10 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import ThFriendList from '@/components/feature/ThFriendList'
 import ThUserCard from '@/components/feature/ThUserCard'
+import ThFriendlistTabsLayout from '@/components/layout/ThFriendlistTabsLayout'
 import ThImageLoader from '@/components/ui/ThImageLoader'
 import ThSkeletonLoading from '@/components/ui/ThSkeletonLoading'
-import ThTabs from '@/components/ui/ThTabs'
 import { useScreenSize } from '@/context/MediaQuery'
 import { useQueryState } from '@/context/QueryFilter'
 import useQueryParams from '@/hooks/queryParams'
@@ -90,36 +89,39 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }, [page])
 
   const renderUserList = () => {
-    if (resultList.length === 0) {
+    if (!!resultList) {
       return (
-        <Typography variant="subtitle2">
-          There is no user whose name is &quot;{keyword}&quot;
-        </Typography>
+        <div className="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 md:tw-place-items-start lg:tw-grid-cols-3 tw-gap-y-8">
+          {resultList.map((user, index) => (
+            <ThUserCard
+              key={index}
+              user={user}
+              totalPages={totalPages}
+              isLast={index === resultList.length - 1}
+              setNewLimit={() => {
+                setPage(page + 1)
+              }}
+            />
+          ))}
+        </div>
       )
     }
 
     return (
-      <div className="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
-        {resultList.map((user, index) => (
-          <ThUserCard
-            key={index}
-            user={user}
-            totalPages={totalPages}
-            isLast={index === resultList.length - 1}
-            setNewLimit={() => {
-              setPage(page + 1)
-            }}
-          />
-        ))}
-      </div>
+      <Typography variant="subtitle2">
+        There is no user whose name is &quot;{keyword}&quot;
+      </Typography>
     )
   }
 
   return (
-    <div className="md:tw-pl-16 xl:tw-flex">
-      <div className="tw-container tw-mr-auto tw-pb-16 tw-px-8 md:tw-p-16 xl:tw-max-w-[975px]">
-        <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 md:-tw-ml-12">
-          <div className="tw-cursor-pointer" onClick={() => router.push('/')}>
+    <div className="md:tw-pl-28 xl:tw-pr-[375px] xl:tw-flex">
+      <div className="tw-container tw-mx-auto tw-pb-16 tw-pt-4 tw-px-6 md:tw-px-16 md:tw-py-[88px] xl:tw-max-w-[925px]">
+        <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 md:-tw-ml-6">
+          <div
+            className="tw-hidden md:tw-block tw-cursor-pointer"
+            onClick={() => router.push('/')}
+          >
             <ThImageLoader
               alt="left-cv"
               src="/assets/svg/chevron_left.svg"
@@ -128,7 +130,9 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
             />
           </div>
 
-          <Typography variant="h1">Results</Typography>
+          <Typography variant={isSmallScreen ? 'h1' : 'display3'}>
+            Results
+          </Typography>
         </div>
 
         {isFetching ? (
@@ -138,20 +142,7 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
         )}
       </div>
 
-      <div className="tw-bg-[#181818] tw-hidden xl:tw-block tw-w-[375px] tw-min-h-screen tw-fixed tw-right-0 tw-bottom-0 tw-top-0">
-        <ThTabs
-          tabs={[
-            {
-              title: 'Followers',
-              component: <ThFriendList />,
-            },
-            {
-              title: 'Following',
-              component: <ThFriendList following />,
-            },
-          ]}
-        />
-      </div>
+      <ThFriendlistTabsLayout />
     </div>
   )
 }

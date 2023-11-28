@@ -36,7 +36,7 @@ const ThUserCard = ({ user, isLast, setNewLimit }: UserCardProps) => {
 
   return (
     <div ref={cardRef}>
-      <div className="!tw-mb-2 !tw-w-[335] !tw-h-[222px] md:!tw-w-[219px] md:!tw-h-[146px]">
+      <div className="tw-mb-8 md:tw-mb-4 !tw-w-[335] !tw-h-[222px] md:!tw-w-[219px] md:!tw-h-[146px]">
         <ThImageLoader
           alt="user-pp"
           width={isSmallScreen ? 335 : 219}
@@ -46,7 +46,9 @@ const ThUserCard = ({ user, isLast, setNewLimit }: UserCardProps) => {
       </div>
 
       <Typography variant="subtitle2">{user.name}</Typography>
-      <Typography variant="labelSmall">By {user.username}</Typography>
+      <Typography variant="labelSmall" className="!tw-text-[#B2B2B2]">
+        By {user.username}
+      </Typography>
     </div>
   )
 }
