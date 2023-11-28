@@ -45,9 +45,9 @@ const ThFriend = ({
   return (
     <div
       ref={friendCardRef}
-      className="tw-flex tw-justify-between tw-items-center"
+      className="tw-flex tw-justify-between tw-items-center tw-mb-[22px]"
     >
-      <div className="tw-flex tw-gap-x-2">
+      <div className="tw-flex tw-gap-x-4">
         <div className="tw-w-[40px] tw-h-[40px]">
           <ThImageLoader
             alt="frd-pp"

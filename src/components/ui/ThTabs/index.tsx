@@ -14,14 +14,16 @@ function CustomTabPanel(props: TabPanelProps) {
 
   return (
     <div
-      className="tw-overflow-y-scroll tw-max-h-[95vh] tw-mb-8"
+      className="tw-overflow-y-scroll tw-max-h-[90vh] tw-mb-8"
       role="tabpanel"
       hidden={value !== index}
       id={`tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && (
+        <Box sx={{ pt: 3.5, pb: 3.5, pl: 2, pr: 2 }}>{children}</Box>
+      )}
     </div>
   )
 }

@@ -34,10 +34,11 @@ export default function ThSearchUser() {
   return (
     <>
       <section>
-        <Typography variant="h1">Search</Typography>
+        <Typography variant="h1" className="md:!tw-mt-1 tw-mb-4 md:!tw-mb-6">
+          Search
+        </Typography>
 
         <ThTextfield
-          className="!tw-mt-6"
           label=""
           placeholder="Keyword"
           name="keyword"
@@ -48,11 +49,11 @@ export default function ThSearchUser() {
         />
       </section>
 
-      <div className="tw-border tw-border-gray-50/10 tw-my-12" />
+      <div className="tw-border tw-border-gray-50/10 tw-mt-6 tw-mb-1 md:tw-mb-9" />
 
       <section>
-        <Typography variant="h1" className="!tw-mb-4">
-          # of results per page
+        <Typography variant="h1" className="!tw-mb-3 md:!tw-mb-4">
+          # Of Results Per Page
         </Typography>
 
         <Typography variant="display1" className="!tw-font-bold">
@@ -62,9 +63,9 @@ export default function ThSearchUser() {
         <ThSlider value={pageSize ?? 0} onChange={onSliderChange} />
       </section>
 
-      <div className="tw-border tw-border-gray-50/10 tw-my-12" />
+      <div className="tw-border tw-border-gray-50/10 tw-mt-6 tw-mb-10" />
 
-      <section className="tw-mt-auto">
+      <section className="tw-mt-60 md:tw-mt-auto">
         <NextLink href={`/results?keyword=${keyword}&pageSize=${pageSize}`}>
           <ThButton variant="primary" className="md:!tw-max-w-[343px]">
             SEARCH

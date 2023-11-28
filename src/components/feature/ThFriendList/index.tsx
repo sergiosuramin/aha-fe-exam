@@ -91,7 +91,7 @@ const ThFriendList = ({ following = false }: FriendListProps) => {
     }
 
     return (
-      <div className="tw-grid tw-gap-4">
+      <div>
         {resultList.map((friend, index) => (
           <ThFriend
             key={index}

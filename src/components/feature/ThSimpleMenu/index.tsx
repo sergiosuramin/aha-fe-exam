@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material'
+import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
 import ThImageLoader from '@/components/ui/ThImageLoader'
@@ -8,10 +9,6 @@ import { LOGO_ICON, MENU_ITEMS } from '@/utils/constants'
 function ThSimpleMenu() {
   const { isSmallScreen } = useScreenSize()
   const router = useRouter()
-
-  const onRoutePush = (path: string) => {
-    router.push(path)
-  }
 
   return (
     <div
@@ -43,22 +40,21 @@ function ThSimpleMenu() {
             return (
               <div
                 key={index}
-                className="md:tw-w-[100%] tw-h-[60px] tw-flex tw-relative tw-justify-center tw-items-center"
+                className="md:tw-w-[100%] tw-h-[60px] md:tw-h-[50px] tw-flex tw-relative tw-justify-center tw-items-center md:tw-mb-2"
               >
-                <div
-                  className="tw-cursor-pointer"
-                  onClick={() => onRoutePush(menu.path)}
-                >
-                  <ThImageLoader
-                    alt="menu"
-                    width={24}
-                    height={24}
-                    src={menu.icon_url_on}
-                    priority
-                  />
-                </div>
+                <NextLink href={`${menu.path}`} className="!tw-cursor-pointer">
+                  <div className="md:tw-mb-3">
+                    <ThImageLoader
+                      alt="menu"
+                      width={24}
+                      height={24}
+                      src={menu.icon_url_on}
+                      priority
+                    />
+                  </div>
+                </NextLink>
 
-                <div className="tw-absolute tw-bottom-0 tw-text-center">
+                <div className="tw-hidden md:tw-block tw-absolute tw-bottom-1 tw-text-center">
                   <Typography variant="labelSmall">
                     {menu.name ?? ''}
                   </Typography>
@@ -70,17 +66,19 @@ function ThSimpleMenu() {
           return (
             <div
               key={index}
-              className="tw-h-[60px] tw-cursor-pointer tw-flex tw-justify-center tw-items-center"
+              className="tw-h-[60px] md:tw-h-[50px] tw-cursor-pointer tw-flex tw-justify-center tw-items-center md:tw-mb-2"
             >
-              <div onClick={() => onRoutePush(menu.path)}>
-                <ThImageLoader
-                  alt="menu"
-                  width={24}
-                  height={24}
-                  src={menu.icon_url_off}
-                  priority
-                />
-              </div>
+              <NextLink href={`${menu.path}`} className="!tw-cursor-pointer">
+                <div className="md:tw-mb-3">
+                  <ThImageLoader
+                    alt="menu"
+                    width={24}
+                    height={24}
+                    src={menu.icon_url_off}
+                    priority
+                  />
+                </div>
+              </NextLink>
             </div>
           )
         })}

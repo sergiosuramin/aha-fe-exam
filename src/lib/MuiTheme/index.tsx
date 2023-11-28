@@ -147,7 +147,7 @@ export const theme = createTheme({
             backgroundColor: '#FFF !important',
             color: '#000',
             width: '100%',
-            height: '40px',
+            height: '29px',
             boxShadow: 'none',
             border: '1px solid #FFF',
             transition: '0.3s',
@@ -170,7 +170,7 @@ export const theme = createTheme({
             backgroundColor: '#121212 !important',
             color: '#FFF',
             width: '100%',
-            height: '40px',
+            height: '29px',
             boxShadow: 'none',
             border: '1px solid #FFF',
             transition: '0.3s',
@@ -192,6 +192,7 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
+          height: '60px',
           // Customize the root style of outlined TextField
           borderRadius: '6px',
           color: 'white',
@@ -221,12 +222,12 @@ export const theme = createTheme({
       styleOverrides: {
         rail: {
           backgroundColor: 'white !important',
-          borderWidth: '5px !important',
+          borderWidth: '4px !important',
         },
         track: {
           background: 'linear-gradient(to right, #FF5C01, #FFD25F) !important',
           border: '#FFD25F',
-          height: '10px !important',
+          height: '9px !important',
         },
         mark: {
           backgroundColor: 'transparent !important',
@@ -250,6 +251,7 @@ export const theme = createTheme({
           backgroundColor: '#FFF',
         },
         root: {
+          paddingTop: '1.25rem !important',
           selected: {
             color: '#FFF !important',
             fontWeight: '700',
