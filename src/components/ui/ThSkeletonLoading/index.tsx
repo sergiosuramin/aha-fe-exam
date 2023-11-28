@@ -30,11 +30,11 @@ const ThSkeletonLoading = ({
           <div key={index} className="tw-w-full">
             <Skeleton
               variant="rounded"
-              className="!tw-mb-2 !tw-w-[335px] !tw-h-[222px] md:!tw-w-[219px] md:!tw-h-[146px]"
+              className="!tw-mb-2 !tw-max-w-[335px] !tw-h-[222px] md:!tw-w-[219px] md:!tw-h-[146px]"
             />
             <Skeleton
               variant="text"
-              className="!tw-mb-2 !tw-w-[335px] md:!tw-w-[219px]"
+              className="!tw-mb-2 !tw-max-w-[335px] md:!tw-w-[219px]"
             />
             <Skeleton variant="text" width={80} />
           </div>
