@@ -3,6 +3,23 @@
 Take Home Exam for: Frontend Position at Aha AI
 Created by: Sergio Suramin, S.Kom
 
+## Tech Stacks
+
+- Next.js 13 (React.js)
+- Typescript
+- Material UI v5
+- Tailwind CSS v3
+- PWA Ready
+- SEO Ready
+
+## What's in here
+
+1. Exam 1 (UI/UX Component)
+2. Exam 2 (Page Layout, Routing, API)
+3. Bug finding (submitted via terraform)
+
+[`Exam Reference`](https://rootdomain.notion.site/Pre-Interview-Information-9c4a3cd26c054c41bc64f0565c827163?p=ac3dd8a3474542899d49efb894672246&pm=s)
+
 ## PWA Ready
 
 Progressive Web App (PWA) ready for better experience.
@@ -10,7 +27,7 @@ Progressive Web App (PWA) ready for better experience.
 PWA Tested on:
 
 - Chrome (Desktop, Mac, Android)
-- Firefox (Desktop) *Need Extension
+- Firefox (Desktop) \*Need Extension
 - Safari (iOS)
 - Kiwi Browser (Android)
 
@@ -70,3 +87,24 @@ Please follow these message format to your commit message:
 
 9. Revert to a previous commit
    revert: [your_message]
+
+## Components
+
+Within the "components" directory, there are three subfolders:
+
+1. ui
+   - This serves as the designated space for crafting fundamental UI components such as textfields, datepickers, etc.
+2. layout
+   - This serves as the designated space for developing layout components like "Container" or any other layout components when necessary.
+3. feature
+   - This serves as the designated space for creating custom components, typically employed when there is a need for a component with a specific purpose.
+
+While reviewing the code, you'll observe that all components have a "Th" prefix. Why? Let's take a moment to reflect. How many times have we created a component with the same name as a component from a third-party library, leading to confusion? This is where the prefix becomes crucial. By assigning a prefix to our components, we ensure each one has a unique name, making it easier for other developers to discern and understand the code.
+
+The same reason applied to the tailwind configuration in this repo.
+
+## QnA
+
+1. Why I use Next?
+
+- Simply to expedite the development process.
