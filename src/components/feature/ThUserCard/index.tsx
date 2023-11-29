@@ -46,7 +46,7 @@ const ThUserCard = ({ user, isLast, setNewLimit }: UserCardProps) => {
       </div>
 
       <Typography variant="subtitle2">{user.name}</Typography>
-      <Typography variant="labelSmall" className="!tw-text-[#B2B2B2]">
+      <Typography variant="labelSmall" className="!tw-text-gray-300">
         By {user.username}
       </Typography>
     </div>

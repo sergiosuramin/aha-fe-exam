@@ -79,7 +79,7 @@ export default function TagsPage({ API_URL }: { API_URL: string }) {
     <div className="md:tw-pl-16">
       <div className="tw-container tw-mx-auto tw-pb-16 tw-pt-4 tw-px-6 md:tw-px-[88px] md:tw-py-[84px] xl:tw-max-w-[1000px]">
         <div className="tw-mb-4">
-          <Typography variant={isSmallScreen ? 'h1' : 'display3'}>
+          <Typography variant={isSmallScreen ? 'h1' : 'display2'}>
             Tags
           </Typography>
         </div>

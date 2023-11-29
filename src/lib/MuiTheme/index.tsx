@@ -6,8 +6,6 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
     display1: React.CSSProperties
     display2: React.CSSProperties
-    display3: React.CSSProperties
-    display4: React.CSSProperties
     subtitle1Reg: React.CSSProperties
     subtitle2Reg: React.CSSProperties
     textButton: React.CSSProperties
@@ -23,8 +21,6 @@ declare module '@mui/material/styles' {
   interface TypographyVariantsOptions {
     display1?: React.CSSProperties
     display2?: React.CSSProperties
-    display3?: React.CSSProperties
-    display4?: React.CSSProperties
     subtitle1Reg?: React.CSSProperties
     subtitle2Reg?: React.CSSProperties
     textButton?: React.CSSProperties
@@ -42,8 +38,6 @@ declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     display1: true
     display2: true
-    display3: true
-    display4: true
     subtitle1Reg: true
     subtitle2Reg: true
     textButton: true
@@ -61,13 +55,6 @@ declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     primary: true
     secondary: true
-  }
-}
-
-declare module '@mui/material/Chip' {
-  interface ChipPropsVariantOverrides {
-    secondary: true
-    primary: true
   }
 }
 
@@ -298,18 +285,8 @@ export const theme = createTheme({
       color: 'white',
     },
     display2: {
-      fontSize: '36px',
-      lineHeight: '54px',
-      color: 'white',
-    },
-    display3: {
       fontSize: '32px',
       lineHeight: '48px',
-      color: 'white',
-    },
-    display4: {
-      fontSize: '28px',
-      lineHeight: '42px',
       color: 'white',
     },
     h1: {

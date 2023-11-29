@@ -9,15 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      boxShadow: {
-        'b16-light': '0px 0px 16px rgba(0, 0, 0, 0.1);', // gray border
-        'b16-dark': '0px 0px 16px rgba(255, 255, 255, 0.1);', // white border
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       aspectRatio: {
         '4/3': '4 / 3',
         '16/9': '16 / 9',
@@ -54,16 +45,17 @@ const config: Config = {
           500: '#23AA01',
         },
         gray: {
-          100: '#D9D9D9',
-          200: '#F3F6F9', // disabled button
-          300: '#B5B5C4', // disabled text
+          100: '#F3F6F9',
+          200: '#D9D9D9', // disabled button
+          300: '#B2B2B2', // disabled text
           400: '#9FA1A7', // placeholder text
-          500: '#7D7D83', // table header
+          500: '#7D7D83',
         },
         black: {
-          300: '#494E53',
-          400: '#393939', // page title
-          500: '#000000', // siedebar text
+          200: '#494E53',
+          300: '#393939',
+          400: '#181818',
+          500: '#000000',
         },
         lightgreen: {
           500: '#A4A537',

@@ -114,7 +114,7 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }
 
   return (
-    <div className="md:tw-pl-28 xl:tw-flex">
+    <div className="xl:tw-flex md:tw-pl-[80px] xl:tw-pr-[375px]">
       <div className="tw-container tw-mx-auto tw-pb-16 tw-pt-4 tw-px-6 md:tw-px-16 md:tw-py-[88px] xl:tw-max-w-[925px]">
         <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 md:-tw-ml-6 md:tw-mb-6">
           <div
@@ -129,7 +129,7 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
             />
           </div>
 
-          <Typography variant={isSmallScreen ? 'h1' : 'display3'}>
+          <Typography variant={isSmallScreen ? 'h1' : 'display2'}>
             Results
           </Typography>
         </div>

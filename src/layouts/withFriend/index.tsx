@@ -19,7 +19,7 @@ const WithFriendLayout: React.FC<LayoutProps> = ({ children }) => {
 
         {isSmallScreen && <ThMobileHeader />}
 
-        <div className="tw-grow xl:tw-pr-[375px]">{children}</div>
+        <div>{children}</div>
 
         <ThFriendlistTabsLayout />
       </main>
