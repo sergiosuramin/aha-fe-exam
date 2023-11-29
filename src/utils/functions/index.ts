@@ -75,3 +75,41 @@ export function toggleFollowingStatus(
       : friend
   )
 }
+
+// -----------------------------START: password strength function-----------------------------
+export function checkPasswordStrength(password: string) {
+  // Rule 1: Have at least one uppercase letter
+  const hasUppercase = /(?=.*[A-Z])/.test(password)
+
+  // Rule 2: Have at least one lowercase letter
+  const hasLowercase = /(?=.*[a-z])/.test(password)
+
+  // Rule 3: Have at least one number
+  const hasNumber = /(?=.*\d)/.test(password)
+
+  // Rule 4: Have at least one special character
+  const hasSpecialCharacter = /(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])/.test(
+    password
+  )
+
+  // Rule 5: Longer than 8 characters
+  const isLongEnough = /(?=.{9,})/.test(password)
+
+  // Combine all rules
+  const isStrongPassword =
+    hasUppercase &&
+    hasLowercase &&
+    hasNumber &&
+    hasSpecialCharacter &&
+    isLongEnough
+
+  return {
+    hasUppercase,
+    hasLowercase,
+    hasNumber,
+    hasSpecialCharacter,
+    isLongEnough,
+    isStrongPassword,
+  }
+}
+// -----------------------------END: password strength function-----------------------------

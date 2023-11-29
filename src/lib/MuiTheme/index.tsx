@@ -104,7 +104,7 @@ export const theme = createTheme({
             },
             ':disabled': {
               borderColor: '#F3F6F9',
-              color: 'white',
+              color: 'black',
             },
           },
         },
@@ -255,6 +255,7 @@ export const theme = createTheme({
     },
   },
   palette: {
+    mode: 'dark',
     primary: {
       main: '#FF9B33', // Primary color
       light: '#fdbb75',
