@@ -111,7 +111,8 @@ export const theme = createTheme({
         {
           props: { variant: 'secondary' },
           style: {
-            backgroundColor: '#FFD05D',
+            borderColor: '#FFD05D',
+            backgroundColor: 'transparent',
             color: '#FF9B33',
             width: '100%',
             height: '40px',
