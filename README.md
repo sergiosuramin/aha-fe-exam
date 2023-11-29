@@ -105,6 +105,10 @@ The same reason applied to the tailwind configuration in this repo.
 
 ## QnA
 
-1. Why I use Next?
+1. Why using Next instead of React.js itself?
 
-- Simply to expedite the development process.
+- Next.js is built on top of React.js, making it an extension of the React framework. By choosing Next.js, we are inherently using React. The decision to use Next.js was primarily driven by its additional features and capabilities, such as server-side rendering and simplified routing, which significantly expedite the development process (this was my primary goal timewise).
+
+2. Why not using axios / react-query for data fetching?
+
+- In my opinion, it appeared excessive to employ those libraries for managing three simple GET APIs.
