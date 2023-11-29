@@ -75,7 +75,7 @@ const InterfacePage = () => {
   const onDateChange = (name: string, value: Dayjs | null) => {
     setFormState((prev) => ({
       ...prev,
-      [name]: dayjs(value).format('DD/MM/YYYY'),
+      [name]: dayjs(value).format('DD MMM YYYY'),
     }))
 
     onBlurChange(name)
