@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import ThUserCard from '@/components/feature/ThUserCard'
-import ThFriendlistTabsLayout from '@/components/layout/ThFriendlistTabsLayout'
 import ThImageLoader from '@/components/ui/ThImageLoader'
 import ThSkeletonLoading from '@/components/ui/ThSkeletonLoading'
 import { useScreenSize } from '@/context/MediaQuery'
@@ -115,9 +114,9 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }
 
   return (
-    <div className="md:tw-pl-28 xl:tw-pr-[375px] xl:tw-flex">
+    <div className="md:tw-pl-28 xl:tw-flex">
       <div className="tw-container tw-mx-auto tw-pb-16 tw-pt-4 tw-px-6 md:tw-px-16 md:tw-py-[88px] xl:tw-max-w-[925px]">
-        <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 md:-tw-ml-6">
+        <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 md:-tw-ml-6 md:tw-mb-6">
           <div
             className="tw-hidden md:tw-block tw-cursor-pointer"
             onClick={() => router.push('/')}
@@ -141,8 +140,6 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
           renderUserList()
         )}
       </div>
-
-      <ThFriendlistTabsLayout />
     </div>
   )
 }
@@ -154,6 +151,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       API_URL,
       query,
+      withFriend: true,
     }, // will be passed to the page component as props
   }
 }

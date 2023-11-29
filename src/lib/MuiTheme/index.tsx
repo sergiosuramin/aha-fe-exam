@@ -343,7 +343,7 @@ export const theme = createTheme({
     subtitle2: {
       fontSize: '14px',
       fontWeight: 700,
-      lineHeight: '20px',
+      lineHeight: '16px',
       color: 'white',
     },
     subtitle2Reg: {

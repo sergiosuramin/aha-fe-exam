@@ -14,7 +14,7 @@ function CustomTabPanel(props: TabPanelProps) {
 
   return (
     <div
-      className="tw-overflow-y-scroll tw-max-h-[90vh] tw-mb-8"
+      className="tw-overflow-y-scroll tw-max-h-[95vh] tw-mb-8"
       role="tabpanel"
       hidden={value !== index}
       id={`tabpanel-${index}`}
