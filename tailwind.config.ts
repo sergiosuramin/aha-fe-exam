@@ -13,6 +13,9 @@ const config: Config = {
         '4/3': '4 / 3',
         '16/9': '16 / 9',
       },
+      boxShadow: {
+        'invert-xl': '0 8px 10px -6px rgb(255 255 255 / 0.1)',
+      },
       fontSize: {
         sm: '0.8rem',
         base: '1rem',
