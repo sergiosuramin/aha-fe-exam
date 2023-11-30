@@ -31,7 +31,7 @@ interface DatePickerProps {
   className?: string
 }
 
-export default function ThDatePicker({
+export default function ThDatePickerStatic({
   name,
   label,
   value,

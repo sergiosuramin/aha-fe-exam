@@ -4,7 +4,8 @@ import { useState } from 'react'
 
 import ThFormLayout from '@/components/layout/ThFormLayout'
 import ThButton from '@/components/ui/ThButton'
-import ThDatePicker from '@/components/ui/ThDatePicker'
+import ThDatePickerMobile from '@/components/ui/ThDatePickerMobile'
+import ThDatePickerStatic from '@/components/ui/ThDatePickerStatic'
 import ThDialog from '@/components/ui/ThDialog'
 
 /**
@@ -15,6 +16,8 @@ import ThDialog from '@/components/ui/ThDialog'
  */
 interface FormProps {
   birthday: string
+  graduateDate: string
+  marriageDate: string
 }
 
 interface FocusProps {
@@ -27,12 +30,16 @@ const ThDatepickerFormDemo = () => {
   })
   const [formState, setFormState] = useState<FormProps>({
     birthday: '',
+    graduateDate: '',
+    marriageDate: '',
   })
   const [open, setOpen] = useState<boolean>(false)
 
   const onResetForm = () => {
     setFormState({
       birthday: '',
+      graduateDate: '',
+      marriageDate: '',
     })
 
     setOpen(false)
@@ -95,7 +102,7 @@ const ThDatepickerFormDemo = () => {
             Static Date Picker With Textfield
           </Typography>
 
-          <ThDatePicker
+          <ThDatePickerStatic
             className="!tw-mt-4"
             label="Birthday"
             name="birthday"
@@ -105,6 +112,35 @@ const ThDatepickerFormDemo = () => {
             onFocus={onFocusChange}
             onBlur={onBlurChange}
             disableFuture // because this is birthday picker
+          />
+        </div>
+
+        <div>
+          <Typography variant="subtitle1Reg">
+            Mobile Date Picker - Portrait
+          </Typography>
+
+          <ThDatePickerMobile
+            className="!tw-mt-4"
+            label="Select Date"
+            name="graduateDate"
+            value={formState.graduateDate}
+            onDateChange={onDateChange}
+          />
+        </div>
+
+        <div>
+          <Typography variant="subtitle1Reg">
+            Mobile Date Picker - Landscape
+          </Typography>
+
+          <ThDatePickerMobile
+            className="!tw-mt-4"
+            label="Select Date"
+            name="marriageDate"
+            orientation="landscape"
+            value={formState.marriageDate}
+            onDateChange={onDateChange}
           />
         </div>
 
@@ -128,6 +164,14 @@ const ThDatepickerFormDemo = () => {
           <ThFormLayout>
             <Typography variant="subtitle2">
               Birthday: {formState.birthday ?? '-'}
+            </Typography>
+
+            <Typography variant="subtitle2">
+              Graduate: {formState.graduateDate ?? '-'}
+            </Typography>
+
+            <Typography variant="subtitle2">
+              Marriage: {formState.marriageDate ?? '-'}
             </Typography>
           </ThFormLayout>
         </div>
