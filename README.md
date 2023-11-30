@@ -5,7 +5,7 @@ Created by: Sergio Suramin, S.Kom
 
 ## Tech Stacks
 
-1. Languages and Libraries
+### 1. Languages and Libraries
 
 - Next.js 13 (React.js)
 - Typescript
@@ -14,15 +14,12 @@ Created by: Sergio Suramin, S.Kom
 - PWA Ready
 - SEO Ready
 
-2. Farewell to inconsistent coding style!
+### 2. Farewell to Inconsistent Coding Style!
 
-✔️ Husky
-
-✔️ Eslint
-
-✔️ Prettier
-
-✔️ VS Code formatter
+- ✔️ Husky
+- ✔️ Eslint
+- ✔️ Prettier
+- ✔️ VS Code formatter
 
 ## What's in here
 
@@ -70,7 +67,7 @@ Yes, I know we dont normally share environment in Readme, but this is an exam.
 - If you don't see .env file in the project:
 
 1. create `.env` file in root folder.
-2. Then, this variable(s): `NEXT_PUBLIC_API_URL="https://avl-frontend-exam.herokuapp.com/api"`
+2. Then, add this variable(s): `NEXT_PUBLIC_API_URL="https://avl-frontend-exam.herokuapp.com/api"`
 
 ## Deployment
 
@@ -129,13 +126,19 @@ Please follow these message format to your commit message:
 
 Within the "components" directory, there are four subfolders:
 
-1. ui
+1. **ui**
+
    - This serves as the designated space for crafting fundamental UI components such as textfields, datepickers, etc.
-2. layout
+
+2. **layout**
+
    - This serves as the designated space for developing layout components like "Container" or any other layout components when necessary.
-3. feature
+
+3. **feature**
+
    - This serves as the designated space for creating custom components, typically employed when there is a need for a component with a specific purpose.
-4. form
+
+4. **form**
    - This serves as the designated space for creating custom form components.
 
 While reviewing the code, you'll observe that all components have a "Th" prefix. Why? Let's take a moment to reflect. How many times have we created a component with the same name as a component from a third-party library, leading to confusion? This is where the prefix becomes crucial. By assigning a prefix to our components, we ensure each one has a unique name, making it easier for other developers to discern and understand the code.
@@ -144,57 +147,44 @@ The same reason applied to the tailwind configuration in this repo.
 
 Prefix naming convention:
 
-1. "Th" in components
+1. **"Th" in components**
 
    - This can be any name, I chose "Th" which stands for "Take Home Exam" abbreviation.
 
-2. "tw-" in tailwind
+2. **"tw-" in tailwind**
    - This can be any name, I chose "tw-" which stands for "Tailwind CSS" abbreviation.
 
 ## Submission
 
-1.  Code is available in this repository.
+- [x] Code is available in this repository.
+- [x] A more detailed information in this repository:
 
-2.  A more detailed information in this repository:
+  - [x] Exam 1: Component (Password Input, Calendar, Advanced Effect)
+    - datepicker variant.
+    - A more comprehensive integration of the Material-UI text field component.
+  - [x] Exam 2: Page (Page Layout, Routing, API Connections, Advanced Effect)
+    - Skeleton Loading Screen
+    - Infinite Loading on Result Page and Friend List
+    - Added a small feature: Users in Result List is interactive. (Click to view their detail)
+    - Added a small feature: Follow/Following buttons in Friend list are interactive (but the data won't persist since there is no POST API to handle that).
 
-    ✔️ Exam 1: Component (Password Input, Calendar, Advanced Effect)
+- [x] Editable Figma link [here](https://www.figma.com/file/gCQXnXvC5eHhkbodG5KHj6/Aha-FE-Exam?type=design&mode=design&t=RHOwoS8ymByUNDLr-1) (For Exam 2: pixel perfect section)
 
-    ✔️ Extension of Exam 1:
-
-         - datepicker variant.
-
-         - A more comprehensive integration of the Material-UI text field component.
-
-    ✔️ Exam 2: Page (Page Layout, Routing, API Connections, Advanced Effect)
-
-    ✔️ Extension of Exam 2:
-
-         - Skeleton Loading Screen
-
-         - Infinite Loading on Result Page and Friend List
-
-         - Added a small feature: Users in Result List is interactive. (Click to view their detail)
-
-         - Added a small feature: Follow/Following buttons in Friend list are interactive (but the data won't persist since there is no POST API to handle that).
-
-3.  Editable figma link [here](https://www.figma.com/file/gCQXnXvC5eHhkbodG5KHj6/Aha-FE-Exam?type=design&mode=design&t=RHOwoS8ymByUNDLr-1) (For Exam 2: pixel perfect section)
-
-4.  Feel Free to contact me on [LinkedIn](https://www.linkedin.com/in/sergio-suramin) if you have any inquiries.
+- [x] Feel Free to contact me on [LinkedIn](https://www.linkedin.com/in/sergio-suramin) if you have any inquiries.
 
 ## QnA
 
-1. Why using Next instead of React.js itself?
+1. **Why using Next instead of React.js itself?**
 
-- Next.js is built on top of React.js, making it an extension of the React framework. By choosing Next.js, we are inherently using React. The decision to use Next.js was primarily driven by its additional features and capabilities, such as server-side rendering and simplified routing, which significantly expedite the development process (this was my primary goal timewise).
+   - Next.js is built on top of React.js, making it an extension of the React framework. The decision to use Next.js was primarily driven by its additional features and capabilities, such as server-side rendering and simplified routing, which significantly expedite the development process (this was my primary goal timewise).
 
-2. Why not using axios / react-query for data fetching?
+2. **Why not using axios / react-query for data fetching?**
 
-- In my opinion, it appeared excessive to employ those libraries for managing three simple GET APIs.
+   - In my opinion, it appeared excessive to employ those libraries for managing three simple GET APIs.
 
-3. Why all images are the same? Are you using a local asset?
+3. **Why all images are the same? Are you using a local asset?**
 
-- Yes, as all of the image in the API response was not accessible, so I decided to substitute them with a local asset.
+   - Yes, as all of the images in the API response were not accessible, so I decided to substitute them with a local asset.
 
-4. Why are you using next/link instead of history (router.push)?
-
-- Indeed, both can be used, but since this is a simple project without any specific need to handle routing programmatically, I chose next/link because of its prefetching feature.
+4. **Why are you using next/link instead of history (router.push)?**
+   - Indeed, both can be used, but since this is a simple project without any specific need to handle routing programmatically, I chose next/link because of its prefetching feature.
