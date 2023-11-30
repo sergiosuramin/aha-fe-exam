@@ -151,6 +151,36 @@ Prefix naming convention:
 2. "tw-" in tailwind
    - This can be any name, I chose "tw-" which stands for "Tailwind CSS" abbreviation.
 
+## Submission
+
+1.  Code is available in this repository.
+
+2.  A more detailed information in this repository:
+
+    ✔️ Exam 1: Component (Password Input, Calendar, Advanced Effect)
+
+    ✔️ Extension of Exam 1:
+
+         - datepicker variant.
+
+         - A more comprehensive integration of the Material-UI text field component.
+
+    ✔️ Exam 2: Page (Page Layout, Routing, API Connections, Advanced Effect)
+
+    ✔️ Extension of Exam 2:
+
+         - Skeleton Loading Screen
+
+         - Infinite Loading on Result Page and Friend List
+
+         - Added a small feature: Users in Result List is interactive. (Click to view their detail)
+
+         - Added a small feature: Follow/Following buttons in Friend list are interactive (but the data won't persist since there is no POST API to handle that).
+
+3.  Editable figma link [here](https://www.figma.com/file/gCQXnXvC5eHhkbodG5KHj6/Aha-FE-Exam?type=design&mode=design&t=RHOwoS8ymByUNDLr-1) (For Exam 2: pixel perfect section)
+
+4.  Feel Free to contact me on [LinkedIn](https://www.linkedin.com/in/sergio-suramin) if you have any inquiries.
+
 ## QnA
 
 1. Why using Next instead of React.js itself?
@@ -165,10 +195,6 @@ Prefix naming convention:
 
 - Yes, as all of the image in the API response was not accessible, so I decided to substitute them with a local asset.
 
-## Submission
+4. Why are you using next/link instead of history (router.push)?
 
-- Code is available in this repository.
-
-- Editable figma link [here](https://www.figma.com/file/gCQXnXvC5eHhkbodG5KHj6/Aha-FE-Exam?type=design&mode=design&t=RHOwoS8ymByUNDLr-1) (For Exam 2: pixel perfect section)
-
-- Feel Free to contact me on [LinkedIn](https://www.linkedin.com/in/sergio-suramin) if you have any inquiries.
+- Indeed, both can be used, but since this is a simple project without any specific need to handle routing programmatically, I chose next/link because of its prefetching feature.
