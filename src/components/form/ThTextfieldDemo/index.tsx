@@ -198,7 +198,9 @@ const ThTextfieldFormDemo = () => {
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">Start Adornment</Typography>
+          <Typography variant="subtitle1Reg">
+            Start Adornment (Currency: number only)
+          </Typography>
           <ThTextfield
             className="!tw-mt-3"
             isMuiDefault
@@ -233,7 +235,9 @@ const ThTextfieldFormDemo = () => {
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">End Adornment</Typography>
+          <Typography variant="subtitle1Reg">
+            End Adornment (Year: number only)
+          </Typography>
           <ThTextfield
             className="!tw-mt-3"
             isMuiDefault

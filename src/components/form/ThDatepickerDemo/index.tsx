@@ -122,7 +122,7 @@ const ThDatepickerFormDemo = () => {
 
           <ThDatePickerMobile
             className="!tw-mt-4"
-            label="Select Date"
+            label="Graduate"
             name="graduateDate"
             value={formState.graduateDate}
             onDateChange={onDateChange}
@@ -136,7 +136,7 @@ const ThDatepickerFormDemo = () => {
 
           <ThDatePickerMobile
             className="!tw-mt-4"
-            label="Select Date"
+            label="Marriage"
             name="marriageDate"
             orientation="landscape"
             value={formState.marriageDate}
