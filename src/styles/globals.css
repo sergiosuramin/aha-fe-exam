@@ -38,8 +38,8 @@ body,
 /* For WebKit-based browsers (such as Safari and Chrome) */
 /* Hide the default scrollbar */
 ::-webkit-scrollbar {
-  /* display: none; */
-  width: 6px;
+  display: none;
+  /* width: 6px; */
 }
 
 /* Define the custom scrollbar track */

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 
 import ThUserCard from '@/components/feature/ThUserCard'
 import ThImageLoader from '@/components/ui/ThImageLoader'
+import ThModal from '@/components/ui/ThModal'
 import ThSkeletonLoading from '@/components/ui/ThSkeletonLoading'
 import { useScreenSize } from '@/context/MediaQuery'
 import { useQueryState } from '@/context/QueryFilter'
@@ -25,6 +26,16 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   const [isFetching, setIsFetching] = useState<boolean>(false)
   const [resultList, setResultList] = useState<FriendInterface[]>([])
   const [totalPages, setTotalPages] = useState<number>(0)
+
+  //for friend modal
+  const [isFriendModalOpen, setFriendModalOpen] = useState<boolean>(false)
+  const [selectedFriend, setSelectedFriend] = useState<FriendInterface>({
+    id: '',
+    name: '',
+    username: '',
+    avater: '',
+    isFollowing: false,
+  })
 
   const skeletonToShow = isSmallScreen ? 1 : isMediumScreen ? 2 : 3
 
@@ -86,20 +97,40 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page])
 
+  const onCloseFriendModal = () => {
+    setFriendModalOpen(false)
+    setSelectedFriend({
+      id: '',
+      name: '',
+      username: '',
+      avater: '',
+      isFollowing: false,
+    })
+  }
+
+  const onSelectFriend = (user: FriendInterface) => {
+    setFriendModalOpen(true)
+    setSelectedFriend(user)
+  }
+
   const renderUserList = () => {
     if (resultList.length > 0) {
       return (
         <div className="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 md:tw-place-items-start lg:tw-grid-cols-3 tw-gap-y-8">
           {resultList.map((user, index) => (
-            <ThUserCard
+            <div
               key={index}
-              user={user}
-              totalPages={totalPages}
-              isLast={index === resultList.length - 1}
-              setNewLimit={() => {
-                setPage(page + 1)
-              }}
-            />
+              onClick={() => onSelectFriend(user)}
+              className="tw-cursor-pointer"
+            >
+              <ThUserCard
+                user={user}
+                isLast={index === resultList.length - 1}
+                setNewLimit={() => {
+                  setPage(page + 1)
+                }}
+              />
+            </div>
           ))}
         </div>
       )
@@ -138,6 +169,10 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
           renderUserList()
         )}
       </div>
+
+      <ThModal open={isFriendModalOpen} onClose={onCloseFriendModal}>
+        <ThUserCard user={selectedFriend} isOnView />
+      </ThModal>
     </div>
   )
 }
