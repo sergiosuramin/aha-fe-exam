@@ -1,11 +1,11 @@
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 import { buildQueryStringV2, parseQueryStringV2 } from '@/utils/functions'
 
 export default function useQueryParams<T>() {
   const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+  const pathname = router.pathname
+  const query = router.query
 
   function setQueryFilter(params: Partial<T>) {
     // Call buildQueryStringV2 to construct the query string
@@ -35,7 +35,7 @@ export default function useQueryParams<T>() {
   }
 
   return {
-    queryParams: searchParams,
+    queryParams: query,
     setQueryFilter,
     setQueryParams,
     parseQueryParams,

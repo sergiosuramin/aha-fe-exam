@@ -160,3 +160,15 @@ Prefix naming convention:
 2. Why not using axios / react-query for data fetching?
 
 - In my opinion, it appeared excessive to employ those libraries for managing three simple GET APIs.
+
+3. Why all images are the same? Are you using a local asset?
+
+- Yes, as all of the image in the API response was not accessible, so I decided to substitute them with a local asset.
+
+## Submission
+
+- Code is available in this repository.
+
+- Editable figma link [here](https://www.figma.com/file/gCQXnXvC5eHhkbodG5KHj6/Aha-FE-Exam?type=design&mode=design&t=RHOwoS8ymByUNDLr-1) (For Exam 2: pixel perfect section)
+
+- Feel Free to contact me on [LinkedIn](https://www.linkedin.com/in/sergio-suramin) if you have any inquiries.

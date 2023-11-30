@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material'
+import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
 import ThImageLoader from '@/components/ui/ThImageLoader'
@@ -13,14 +14,16 @@ function ThMobileHeader() {
     return (
       <div className="tw-container tw-mx-auto tw-px-4 tw-py-5">
         <div className="tw-flex tw-items-center tw-gap-x-4">
-          <div className="tw-cursor-pointer" onClick={() => router.push('/')}>
-            <ThImageLoader
-              alt="left-cv"
-              src="/assets/svg/chevron_left.svg"
-              width={26}
-              height={26}
-            />
-          </div>
+          <NextLink href="/">
+            <div className="tw-cursor-pointer">
+              <ThImageLoader
+                alt="left-cv"
+                src="/assets/svg/chevron_left.svg"
+                width={26}
+                height={26}
+              />
+            </div>
+          </NextLink>
 
           <Typography variant="h1">Home Page</Typography>
         </div>

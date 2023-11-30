@@ -9,7 +9,7 @@ const InterfacePage = () => {
       <div className="md:tw-pl-16">
         <div className="tw-container tw-mx-auto tw-pb-16 tw-pt-4 tw-px-6 md:tw-px-[88px] md:tw-py-[84px] tw-max-w-7xl">
           <Typography variant="display2" className="!tw-mb-8 !tw-pl-3">
-            UI/UX Demo
+            UI/UX Components Demo
           </Typography>
 
           <div className="tw-grid lg:tw-grid-cols-2 tw-gap-6 tw-rounded-xl tw-rounded-white tw-p-4">

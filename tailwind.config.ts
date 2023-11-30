@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  important: true,
   prefix: 'tw-',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',

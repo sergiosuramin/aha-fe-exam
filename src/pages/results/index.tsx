@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { GetServerSideProps } from 'next'
-import { useRouter } from 'next/navigation'
+import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
 import ThUserCard from '@/components/feature/ThUserCard'
@@ -18,14 +18,15 @@ interface ResultProps {
 }
 
 export default function ResultPage({ query, API_URL }: ResultProps) {
-  const router = useRouter()
   const { isSmallScreen, isMediumScreen } = useScreenSize()
   const { keyword, page, pageSize, setPage, updateDefaultQueries } =
     useQueryState()
-  const { setQueryFilter } = useQueryParams()
+  const { queryParams, setQueryFilter } = useQueryParams()
   const [isFetching, setIsFetching] = useState<boolean>(false)
   const [resultList, setResultList] = useState<FriendInterface[]>([])
   const [totalPages, setTotalPages] = useState<number>(0)
+
+  console.log('lala-- queryParams--', queryParams)
 
   const skeletonToShow = isSmallScreen ? 1 : isMediumScreen ? 2 : 3
 
@@ -117,17 +118,16 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
     <div className="xl:tw-flex md:tw-pl-[80px] xl:tw-pr-[375px]">
       <div className="tw-container tw-mx-auto tw-pb-16 tw-pt-4 tw-px-6 md:tw-px-16 md:tw-py-[88px] xl:tw-max-w-[925px]">
         <div className="tw-flex tw-items-center tw-gap-x-6 tw-mb-4 md:-tw-ml-6 md:tw-mb-6">
-          <div
-            className="tw-hidden md:tw-block tw-cursor-pointer"
-            onClick={() => router.push('/')}
-          >
-            <ThImageLoader
-              alt="left-cv"
-              src="/assets/svg/chevron_left.svg"
-              width={26}
-              height={26}
-            />
-          </div>
+          <NextLink href="/" className="tw-hidden md:tw-block">
+            <div className="tw-cursor-pointer">
+              <ThImageLoader
+                alt="left-cv"
+                src="/assets/svg/chevron_left.svg"
+                width={26}
+                height={26}
+              />
+            </div>
+          </NextLink>
 
           <Typography variant={isSmallScreen ? 'h1' : 'display2'}>
             Results
