@@ -14,7 +14,7 @@ const config: Config = {
         '16/9': '16 / 9',
       },
       boxShadow: {
-        'invert-xl': '0 8px 10px -6px rgb(255 255 255 / 0.1)',
+        'invert-xl': '0 8px 10px -8px rgb(255 255 255 / 0.1)',
       },
       fontSize: {
         sm: '0.8rem',

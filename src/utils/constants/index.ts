@@ -53,3 +53,16 @@ export const PASSWORD_STRENGTH = [
     key: 'isLongEnough',
   },
 ]
+
+export const PHONE_PREFIX = [
+  { label: 'Indonesia', value: '+62' },
+  { label: 'Brunei Darussalam', value: '+673' },
+  { label: 'Cambodia', value: '+855' },
+  { label: 'Laos', value: '+856' },
+  { label: 'Malaysia', value: '+60' },
+  { label: 'Myanmar (Burma)', value: '+95' },
+  { label: 'Philippines', value: '+63' },
+  { label: 'Singapore', value: '+65' },
+  { label: 'Thailand', value: '+66' },
+  { label: 'Vietnam', value: '+84' },
+]

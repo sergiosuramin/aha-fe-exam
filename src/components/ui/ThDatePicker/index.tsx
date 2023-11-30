@@ -28,6 +28,7 @@ interface DatePickerProps {
   onDateChange: (name: string, newValue: Dayjs | null) => void
   onFocus?: (name: string) => void
   onBlur?: (name: string) => void
+  className?: string
 }
 
 export default function ThDatePicker({
@@ -40,9 +41,10 @@ export default function ThDatePicker({
   onDateChange,
   onFocus,
   onBlur,
+  className = '',
 }: DatePickerProps) {
   return (
-    <div className="tw-relative">
+    <div className={`tw-relative ${className}`}>
       <ThTextfield
         isMuiDefault
         name={name}

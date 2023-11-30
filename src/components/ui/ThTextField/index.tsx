@@ -111,7 +111,6 @@ function ThTextfield({
   const passwordStrength: PasswordStrength = password
     ? checkPasswordStrength(value as string)
     : {}
-
   return (
     <div>
       {label && !isMuiDefault && (

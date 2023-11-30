@@ -76,7 +76,13 @@ export function toggleFollowingStatus(
   )
 }
 
-// -----------------------------START: password strength function-----------------------------
+// -----------------------------START: form strength functions-----------------------------
+export function CheckIsNumeric(s: string) {
+  const isNumeric = /^\d+$/.test(s)
+
+  return isNumeric
+}
+
 export function checkPasswordStrength(password: string) {
   // Rule 1: Have at least one uppercase letter
   const hasUppercase = /(?=.*[A-Z])/.test(password)
@@ -112,4 +118,4 @@ export function checkPasswordStrength(password: string) {
     isStrongPassword,
   }
 }
-// -----------------------------END: password strength function-----------------------------
+// -----------------------------END: form strength functions-----------------------------

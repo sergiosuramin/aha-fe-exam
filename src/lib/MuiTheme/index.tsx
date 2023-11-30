@@ -1,6 +1,11 @@
 'use client'
-
 import { createTheme } from '@mui/material'
+
+const OutlinedInputHeight = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const inputHeight = (props: any) => (props.multiline ? 'auto' : '60px')
+  return inputHeight
+}
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
@@ -180,7 +185,7 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          height: '60px',
+          height: `${OutlinedInputHeight}`,
           // Customize the root style of outlined TextField
           borderRadius: '6px',
           color: 'white',
@@ -195,6 +200,9 @@ export const theme = createTheme({
           '&:focus-within .MuiOutlinedInput-notchedOutline': {
             borderColor: '#FF9B33 !important', // Primary color on focus
             borderWidth: '3px',
+          },
+          '&.Mui-error .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#cf1c0c !important', // Red color for error state
           },
         },
       },
