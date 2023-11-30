@@ -30,11 +30,11 @@ const ThSkeletonLoading = ({
           <div key={index} className="tw-w-full">
             <Skeleton
               variant="rounded"
-              className="!tw-mb-2 !tw-max-w-[335px] !tw-h-[222px] md:!tw-w-[219px] md:!tw-h-[146px]"
+              className="tw-mb-2 tw-max-w-[335px] tw-h-[222px] md:tw-w-[219px] md:tw-h-[146px]"
             />
             <Skeleton
               variant="text"
-              className="!tw-mb-2 !tw-max-w-[335px] md:!tw-w-[219px]"
+              className="tw-mb-2 tw-max-w-[335px] md:tw-w-[219px]"
             />
             <Skeleton variant="text" width={80} />
           </div>
@@ -68,9 +68,9 @@ const ThSkeletonLoading = ({
               variant="rounded"
               width={150}
               height={150}
-              className="!tw-mb-2"
+              className="tw-mb-2"
             />
-            <Skeleton variant="text" width={150} className="!tw-mb-2" />
+            <Skeleton variant="text" width={150} className="tw-mb-2" />
             <Skeleton variant="text" width={80} />
           </div>
         ))}
@@ -80,7 +80,7 @@ const ThSkeletonLoading = ({
 
   return (
     <div className="tw-grid tw-place-items-center tw-grid-cols-1 tw-gap-6">
-      <Skeleton className="!tw-m-4" />
+      <Skeleton className="tw-m-4" />
     </div>
   )
 }

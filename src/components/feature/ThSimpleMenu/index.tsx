@@ -42,7 +42,7 @@ function ThSimpleMenu() {
                 key={index}
                 className="md:tw-w-[100%] tw-h-[60px] md:tw-h-[50px] tw-flex tw-relative tw-justify-center tw-items-center md:tw-mb-3"
               >
-                <NextLink href={`${menu.path}`} className="!tw-cursor-pointer">
+                <NextLink href={`${menu.path}`} className="tw-cursor-pointer">
                   <div className="md:tw-mb-3">
                     <ThImageLoader
                       alt="menu"
@@ -68,7 +68,7 @@ function ThSimpleMenu() {
               key={index}
               className="tw-h-[60px] md:tw-h-[50px] tw-cursor-pointer tw-flex tw-justify-center tw-items-center md:tw-mb-3"
             >
-              <NextLink href={`${menu.path}`} className="!tw-cursor-pointer">
+              <NextLink href={`${menu.path}`} className="tw-cursor-pointer">
                 <div className="md:tw-mb-3">
                   <ThImageLoader
                     alt="menu"

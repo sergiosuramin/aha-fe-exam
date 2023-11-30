@@ -79,11 +79,11 @@ const ThDatepickerFormDemo = () => {
   const dialogActionButton = () => {
     return (
       <>
-        <ThButton onClick={() => onResetForm()} className="!tw-max-w-[100px]">
+        <ThButton onClick={() => onResetForm()} className="tw-max-w-[100px]">
           Clear
         </ThButton>
 
-        <ThButton onClick={() => onOpenChange()} className="!tw-max-w-[100px]">
+        <ThButton onClick={() => onOpenChange()} className="tw-max-w-[100px]">
           Save
         </ThButton>
       </>
@@ -93,7 +93,7 @@ const ThDatepickerFormDemo = () => {
   return (
     <>
       <ThFormLayout>
-        <Typography variant="h3" className="!tw-font-bold">
+        <Typography variant="h3" className="tw-font-bold">
           DatePicker
         </Typography>
 
@@ -103,7 +103,7 @@ const ThDatepickerFormDemo = () => {
           </Typography>
 
           <ThDatePickerStatic
-            className="!tw-mt-4"
+            className="tw-mt-4"
             label="Birthday"
             name="birthday"
             value={formState.birthday}
@@ -121,7 +121,7 @@ const ThDatepickerFormDemo = () => {
           </Typography>
 
           <ThDatePickerMobile
-            className="!tw-mt-4"
+            className="tw-mt-4"
             label="Graduate"
             name="graduateDate"
             value={formState.graduateDate}
@@ -135,7 +135,7 @@ const ThDatepickerFormDemo = () => {
           </Typography>
 
           <ThDatePickerMobile
-            className="!tw-mt-4"
+            className="tw-mt-4"
             label="Marriage"
             name="marriageDate"
             orientation="landscape"
@@ -147,7 +147,7 @@ const ThDatepickerFormDemo = () => {
         <ThButton
           variant="secondary"
           onClick={() => onSubmit()}
-          className="!tw-w-[80px] !tw-mt-4"
+          className="tw-w-[80px] tw-mt-4"
         >
           Submit
         </ThButton>

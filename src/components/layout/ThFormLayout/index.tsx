@@ -11,7 +11,7 @@ function ThFormLayout({ children, className }: FormLayoutProps) {
 
   // Wrap each child with a Grid item
   const childrenWithGridItem = React.Children.map(children, (child) => (
-    <Grid item {...itemGrid} className="!tw-w-[100%] tw-my-1 tw-mx-0">
+    <Grid item {...itemGrid} className="tw-w-[100%] tw-my-1 tw-mx-0">
       {child}
     </Grid>
   ))

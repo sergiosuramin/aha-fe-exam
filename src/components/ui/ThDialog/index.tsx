@@ -38,13 +38,11 @@ function ThDialog({
       onClose={handleClose}
     >
       {title && (
-        <DialogTitle className="!tw-text-center !tw-font-bold">
+        <DialogTitle className="tw-text-center tw-font-bold">
           {title}
         </DialogTitle>
       )}
-      <DialogContent
-        className={`!tw-py-2 ${isCenter && '!tw-flex tw-mx-auto'}`}
-      >
+      <DialogContent className={`tw-py-2 ${isCenter && 'tw-flex tw-mx-auto'}`}>
         {children}
       </DialogContent>
       {actionNode && <DialogActions className="">{actionNode}</DialogActions>}

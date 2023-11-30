@@ -58,10 +58,10 @@ const ThFriend = ({
         </div>
 
         <div className="tw-flex tw-flex-col">
-          <Typography variant="subtitle2Reg" className="!tw-line-clamp-1">
+          <Typography variant="subtitle2Reg" className="tw-line-clamp-1">
             {friend.name}
           </Typography>
-          <Typography variant="subtitle2Reg" className="!tw-line-clamp-1">
+          <Typography variant="subtitle2Reg" className="tw-line-clamp-1">
             @{friend.username}
           </Typography>
         </div>

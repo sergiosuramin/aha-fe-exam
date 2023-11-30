@@ -21,12 +21,10 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   const { isSmallScreen, isMediumScreen } = useScreenSize()
   const { keyword, page, pageSize, setPage, updateDefaultQueries } =
     useQueryState()
-  const { queryParams, setQueryFilter } = useQueryParams()
+  const { setQueryFilter } = useQueryParams()
   const [isFetching, setIsFetching] = useState<boolean>(false)
   const [resultList, setResultList] = useState<FriendInterface[]>([])
   const [totalPages, setTotalPages] = useState<number>(0)
-
-  console.log('lala-- queryParams--', queryParams)
 
   const skeletonToShow = isSmallScreen ? 1 : isMediumScreen ? 2 : 3
 

@@ -123,11 +123,11 @@ const ThTextfieldFormDemo = () => {
   const dialogActionButton = () => {
     return (
       <>
-        <ThButton onClick={() => onResetForm()} className="!tw-max-w-[100px]">
+        <ThButton onClick={() => onResetForm()} className="tw-max-w-[100px]">
           Clear
         </ThButton>
 
-        <ThButton onClick={() => onOpenChange()} className="!tw-max-w-[100px]">
+        <ThButton onClick={() => onOpenChange()} className="tw-max-w-[100px]">
           Save
         </ThButton>
       </>
@@ -137,14 +137,14 @@ const ThTextfieldFormDemo = () => {
   return (
     <>
       <ThFormLayout>
-        <Typography variant="h3" className="!tw-font-bold">
+        <Typography variant="h3" className="tw-font-bold">
           Textfield
         </Typography>
 
         <div>
           <Typography variant="subtitle1Reg">Default</Typography>
           <ThTextfield
-            className="!tw-mt-3"
+            className="tw-mt-3"
             isMuiDefault
             name="name"
             label="Name"
@@ -157,7 +157,7 @@ const ThTextfieldFormDemo = () => {
         <div>
           <Typography variant="subtitle1Reg">Multiline</Typography>
           <ThTextfield
-            className="!tw-mt-3"
+            className="tw-mt-3"
             isMuiDefault
             name="description"
             label="Description"
@@ -171,7 +171,7 @@ const ThTextfieldFormDemo = () => {
         <div>
           <Typography variant="subtitle1Reg">With Helper</Typography>
           <ThTextfield
-            className="!tw-mt-3"
+            className="tw-mt-3"
             isMuiDefault
             name="withHelper"
             label="Helper"
@@ -185,7 +185,7 @@ const ThTextfieldFormDemo = () => {
         <div>
           <Typography variant="subtitle1Reg">With Error</Typography>
           <ThTextfield
-            className="!tw-mt-3"
+            className="tw-mt-3"
             isMuiDefault
             name="withError"
             label="Error"
@@ -202,7 +202,7 @@ const ThTextfieldFormDemo = () => {
             Start Adornment (Currency: number only)
           </Typography>
           <ThTextfield
-            className="!tw-mt-3"
+            className="tw-mt-3"
             isMuiDefault
             name="amount"
             label="Amount"
@@ -218,7 +218,7 @@ const ThTextfieldFormDemo = () => {
             Interactive Start Adornment
           </Typography>
           <ThTextfield
-            className="!tw-mt-3"
+            className="tw-mt-3"
             isMuiDefault
             name="phoneNumber"
             label="Phone Number"
@@ -239,7 +239,7 @@ const ThTextfieldFormDemo = () => {
             End Adornment (Year: number only)
           </Typography>
           <ThTextfield
-            className="!tw-mt-3"
+            className="tw-mt-3"
             isMuiDefault
             name="experience"
             label="Experience"
@@ -255,7 +255,7 @@ const ThTextfieldFormDemo = () => {
             Password With Validation (Interactive End Adornment)
           </Typography>
           <ThTextfield
-            className="!tw-mt-3"
+            className="tw-mt-3"
             isMuiDefault
             name="password"
             label="Password *"
@@ -273,7 +273,7 @@ const ThTextfieldFormDemo = () => {
           variant="secondary"
           disabled={submitButtonEligibility()}
           onClick={() => onSubmit()}
-          className="!tw-w-[80px] !tw-mt-4"
+          className="tw-w-[80px] tw-mt-4"
         >
           Submit
         </ThButton>

@@ -34,7 +34,7 @@ export default function ThSearchUser() {
   return (
     <>
       <section>
-        <Typography variant="h1" className="md:!tw-mt-1 tw-mb-4 md:!tw-mb-6">
+        <Typography variant="h1" className="md:tw-mt-1 tw-mb-4 md:tw-mb-6">
           Search
         </Typography>
 
@@ -52,11 +52,11 @@ export default function ThSearchUser() {
       <div className="tw-border tw-border-gray-50/10 tw-mt-6 tw-mb-1 md:tw-mb-9" />
 
       <section>
-        <Typography variant="h1" className="!tw-mb-3 md:!tw-mb-4">
+        <Typography variant="h1" className="tw-mb-3 md:tw-mb-4">
           # Of Results Per Page
         </Typography>
 
-        <Typography variant="display1" className="!tw-font-bold">
+        <Typography variant="display1" className="tw-font-bold">
           {pageSize} <Typography variant="subtitle1Reg">Results</Typography>
         </Typography>
 
@@ -67,7 +67,7 @@ export default function ThSearchUser() {
 
       <section className="tw-mt-56 md:tw-mt-auto">
         <NextLink href={`/results?keyword=${keyword}&pageSize=${pageSize}`}>
-          <ThButton variant="primary" className="md:!tw-max-w-[343px]">
+          <ThButton variant="primary" className="md:tw-max-w-[343px]">
             SEARCH
           </ThButton>
         </NextLink>
