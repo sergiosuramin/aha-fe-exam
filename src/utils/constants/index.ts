@@ -66,3 +66,27 @@ export const PHONE_PREFIX = [
   { label: 'Thailand', value: '+66' },
   { label: 'Vietnam', value: '+84' },
 ]
+
+export const SKELETON_TO_SHOW = {
+  RESULTS: {
+    DEFAULT: 1,
+    SMALL: 1,
+    MEDIUM: 2,
+    LARGE: 3,
+    EXTRA_LARGE: 4,
+  },
+  FRIENDS: {
+    DEFAULT: 10,
+    SMALL: 10,
+    MEDIUM: 10,
+    LARGE: 10,
+    EXTRA_LARGE: 10,
+  },
+  TAGS: {
+    DEFAULT: 1,
+    SMALL: 2,
+    MEDIUM: 3,
+    LARGE: 4,
+    EXTRA_LARGE: 5,
+  },
+}

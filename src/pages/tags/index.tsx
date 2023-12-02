@@ -8,6 +8,7 @@ import { useScreenSize } from '@/context/MediaQuery'
 import { useQueryState } from '@/context/QueryFilter'
 import useQueryParams from '@/hooks/queryParams'
 import { TagInterface } from '@/models'
+import { SKELETON_TO_SHOW } from '@/utils/constants'
 
 export default function TagsPage({ API_URL }: { API_URL: string }) {
   const { isSmallScreen, isMediumScreen, isLargeScreen, isExtraLargeScreen } =
@@ -18,14 +19,14 @@ export default function TagsPage({ API_URL }: { API_URL: string }) {
   const [tagList, setTagList] = useState<TagInterface[]>([])
 
   const skeletonToShow = isSmallScreen
-    ? 2
+    ? SKELETON_TO_SHOW.FRIENDS.SMALL
     : isMediumScreen
-      ? 3
+      ? SKELETON_TO_SHOW.FRIENDS.MEDIUM
       : isLargeScreen && !isExtraLargeScreen
-        ? 4
+        ? SKELETON_TO_SHOW.FRIENDS.LARGE
         : isExtraLargeScreen
-          ? 5
-          : 1
+          ? SKELETON_TO_SHOW.FRIENDS.EXTRA_LARGE
+          : SKELETON_TO_SHOW.FRIENDS.DEFAULT
 
   const didmount = () => {
     // reset query filter on page visit

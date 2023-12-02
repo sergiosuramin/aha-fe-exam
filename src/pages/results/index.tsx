@@ -12,6 +12,7 @@ import { useScreenSize } from '@/context/MediaQuery'
 import { useQueryState } from '@/context/QueryFilter'
 import useQueryParams from '@/hooks/queryParams'
 import { DynamicInterface, FriendInterface } from '@/models'
+import { SKELETON_TO_SHOW } from '@/utils/constants'
 
 interface ResultProps {
   API_URL: string
@@ -27,6 +28,7 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   const [isFetching, setIsFetching] = useState<boolean>(true)
   const [resultList, setResultList] = useState<FriendInterface[]>([])
   const [totalPages, setTotalPages] = useState<number>(0)
+  const [isInitialized, setIsInitialized] = useState<boolean>(false)
 
   //for friend modal
   const [isFriendModalOpen, setFriendModalOpen] = useState<boolean>(false)
@@ -38,13 +40,22 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
     isFollowing: false,
   })
 
-  const skeletonToShow = isSmallScreen ? 1 : isMediumScreen ? 2 : 3
+  const skeletonToShow = isSmallScreen
+    ? SKELETON_TO_SHOW.RESULTS.SMALL
+    : isMediumScreen
+      ? SKELETON_TO_SHOW.RESULTS.MEDIUM
+      : SKELETON_TO_SHOW.RESULTS.LARGE
 
   const didmount = () => {
-    setPage(1)
-
     if (!!query) {
       updateDefaultQueries(query)
+
+      /**
+       * This flag prevents redundant refetching scenarios.
+       * Without it, multiple useEffects might overlap, potentially leading to
+       * API calls with incomplete or non-finalized query values.
+       */
+      setIsInitialized(true)
     }
   }
 
@@ -78,11 +89,12 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
         setTotalPages(data.totalPages ?? 0)
       }
 
-      setIsFetching(false)
+      // setIsFetching(false)
     } catch (error) {
-      setIsFetching(false)
+      // setIsFetching(false)
       console.error('Error fetching data:', error)
     }
+    setIsFetching(false)
   }
 
   useEffect(() => {
@@ -92,11 +104,13 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }, [])
 
   useEffect(() => {
-    fetchData()
+    if (isInitialized) {
+      fetchData()
+    }
 
     // no changes in the query, safe to ignnore the hooks warning
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page])
+  }, [keyword, page, pageSize, isInitialized])
 
   const onCloseFriendModal = () => {
     setFriendModalOpen(false)

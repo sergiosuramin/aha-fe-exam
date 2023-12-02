@@ -6,6 +6,7 @@ import ThInfiniteScroll from '@/components/feature/ThInfiniteScroll'
 import ThSkeletonLoading from '@/components/ui/ThSkeletonLoading'
 import useQueryParams from '@/hooks/queryParams'
 import { FriendInterface } from '@/models'
+import { SKELETON_TO_SHOW } from '@/utils/constants'
 import { filterIsFollowing, toggleFollowingStatus } from '@/utils/functions'
 
 interface FriendListProps {
@@ -76,7 +77,7 @@ const ThFriendList = ({ following = false }: FriendListProps) => {
   }, [page])
 
   const onFollowClick = async (friendId: string) => {
-    // because there is no API to update follow status, let's handled it in FE side to simulate it
+    // because there is no API to update follow status, let's handle it in FE side to simulate it
     // important to note because lack of APIs, the updated list won't be persists.
     const updatedFriends = await toggleFollowingStatus(friendId, friendList)
     setFriendList(updatedFriends)
@@ -118,7 +119,10 @@ const ThFriendList = ({ following = false }: FriendListProps) => {
   return (
     <div>
       {isFetching ? (
-        <ThSkeletonLoading friendsSkeleton skeletonToShow={10} />
+        <ThSkeletonLoading
+          friendsSkeleton
+          skeletonToShow={SKELETON_TO_SHOW.FRIENDS.DEFAULT}
+        />
       ) : (
         renderFriends()
       )}
