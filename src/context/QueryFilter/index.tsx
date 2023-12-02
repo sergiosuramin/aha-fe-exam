@@ -39,11 +39,9 @@ const QueryStateProvider: React.FC<QueryStateProviderProps> = ({
   }
 
   const updateDefaultQueries = (newQueries: DynamicInterface) => {
-    setPage(typeof newQueries.page === 'number' ? newQueries.page : 1)
-    setPageSize(
-      typeof newQueries.pageSize === 'number' ? newQueries.pageSize : 10
-    )
-    setKeyword(typeof newQueries.keyword === 'string' ? newQueries.keyword : '')
+    setPage(!!newQueries.page ? Number(newQueries.page) : 1)
+    setPageSize(!!newQueries.pageSize ? Number(newQueries.pageSize) : 10)
+    setKeyword(!!newQueries.keyword ? newQueries.keyword : '')
   }
 
   useEffect(() => {
