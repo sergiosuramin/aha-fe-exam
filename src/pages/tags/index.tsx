@@ -14,7 +14,7 @@ export default function TagsPage({ API_URL }: { API_URL: string }) {
     useScreenSize()
   const { page, pageSize, resetQueries } = useQueryState()
   const { setQueryFilter } = useQueryParams()
-  const [isFetching, setIsFetching] = useState<boolean>(false)
+  const [isFetching, setIsFetching] = useState<boolean>(true)
   const [tagList, setTagList] = useState<TagInterface[]>([])
 
   const skeletonToShow = isSmallScreen
@@ -38,25 +38,25 @@ export default function TagsPage({ API_URL }: { API_URL: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const endpoint = `${API_URL}/tags${setQueryFilter({
-        page,
-        pageSize,
-      })}`
+  const fetchData = async () => {
+    const endpoint = `${API_URL}/tags${setQueryFilter({
+      page,
+      pageSize,
+    })}`
 
-      setIsFetching(true)
-      try {
-        const tagsResponse = await fetch(endpoint)
-        const data = await tagsResponse.json()
+    setIsFetching(true)
+    try {
+      const tagsResponse = await fetch(endpoint)
+      const data = await tagsResponse.json()
 
-        setTagList(data)
-        setIsFetching(false)
-      } catch (error) {
-        setIsFetching(false)
-      }
+      setTagList(data)
+      setIsFetching(false)
+    } catch (error) {
+      setIsFetching(false)
     }
+  }
 
+  useEffect(() => {
     fetchData()
 
     // no changes in the query, safe to ignnore the hooks warning
@@ -70,7 +70,11 @@ export default function TagsPage({ API_URL }: { API_URL: string }) {
 
     return (
       <Typography variant="subtitle2">
-        There is no tags available right now.
+        {/* There is no user whose name is &quot;{keyword}&quot; */}
+        Failed to load data.{' '}
+        <Typography variant="textButton" onClick={() => fetchData()}>
+          Retry
+        </Typography>
       </Typography>
     )
   }

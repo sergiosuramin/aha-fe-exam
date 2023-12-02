@@ -3,6 +3,7 @@ import { GetServerSideProps } from 'next'
 import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
+import ThInfiniteScroll from '@/components/feature/ThInfiniteScroll'
 import ThUserCard from '@/components/feature/ThUserCard'
 import ThImageLoader from '@/components/ui/ThImageLoader'
 import ThModal from '@/components/ui/ThModal'
@@ -23,7 +24,7 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   const { keyword, page, pageSize, setPage, updateDefaultQueries } =
     useQueryState()
   const { setQueryFilter } = useQueryParams()
-  const [isFetching, setIsFetching] = useState<boolean>(false)
+  const [isFetching, setIsFetching] = useState<boolean>(true)
   const [resultList, setResultList] = useState<FriendInterface[]>([])
   const [totalPages, setTotalPages] = useState<number>(0)
 
@@ -47,6 +48,43 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
     }
   }
 
+  const fetchData = async () => {
+    const endpoint = `${API_URL}/users/all${setQueryFilter({
+      keyword,
+      page,
+      pageSize,
+    })}`
+
+    if (totalPages === 0) {
+      // this statement indicates not the first data fetching
+      setIsFetching(true)
+    }
+
+    try {
+      const resultResponse = await fetch(endpoint)
+      const data = await resultResponse.json()
+
+      const users = data.data ?? []
+
+      if (totalPages === 0) {
+        setResultList(users)
+      } else {
+        setResultList((prev) => [...prev, ...users])
+      }
+
+      // save total pages for infinite scroll event
+      if (totalPages === 0) {
+        // this statement indicates it is the first time data fetch
+        setTotalPages(data.totalPages ?? 0)
+      }
+
+      setIsFetching(false)
+    } catch (error) {
+      setIsFetching(false)
+      console.error('Error fetching data:', error)
+    }
+  }
+
   useEffect(() => {
     didmount()
     // didmount only, safe to ignore
@@ -54,43 +92,6 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   }, [])
 
   useEffect(() => {
-    const fetchData = async () => {
-      const endpoint = `${API_URL}/users/all${setQueryFilter({
-        keyword,
-        page,
-        pageSize,
-      })}`
-
-      if (totalPages === 0) {
-        // this statement indicates not the first data fetching
-        setIsFetching(true)
-      }
-
-      try {
-        const resultResponse = await fetch(endpoint)
-        const data = await resultResponse.json()
-
-        const users = data.data ?? []
-
-        if (totalPages === 0) {
-          setResultList(users)
-        } else {
-          setResultList((prev) => [...prev, ...users])
-        }
-
-        // save total pages for infinite scroll event
-        if (totalPages === 0) {
-          // this statement indicates it is the first time data fetch
-          setTotalPages(data.totalPages ?? 0)
-        }
-
-        setIsFetching(false)
-      } catch (error) {
-        setIsFetching(false)
-        console.error('Error fetching data:', error)
-      }
-    }
-
     fetchData()
 
     // no changes in the query, safe to ignnore the hooks warning
@@ -116,29 +117,30 @@ export default function ResultPage({ query, API_URL }: ResultProps) {
   const renderUserList = () => {
     if (resultList.length > 0) {
       return (
-        <div className="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 md:tw-place-items-start lg:tw-grid-cols-3 tw-gap-y-8">
-          {resultList.map((user, index) => (
-            <div
-              key={index}
-              onClick={() => onSelectFriend(user)}
-              className="tw-cursor-pointer"
-            >
-              <ThUserCard
-                user={user}
-                isLast={index === resultList.length - 1}
-                setNewLimit={() => {
-                  setPage(page + 1)
-                }}
-              />
-            </div>
-          ))}
-        </div>
+        <ThInfiniteScroll
+          data={resultList}
+          parentClassName="tw-grid tw-place-items-center tw-grid-cols-1 md:tw-grid-cols-2 md:tw-place-items-start lg:tw-grid-cols-3 tw-gap-y-8"
+          itemClassName="tw-cursor-pointer"
+          setNewLimit={() => {
+            // make sure we dont set new page once it reach the last page
+            if (page < totalPages) setPage(page + 1)
+          }}
+          onItemClick={onSelectFriend}
+        >
+          {(user: FriendInterface, index: number) => (
+            <ThUserCard key={index} user={user} />
+          )}
+        </ThInfiniteScroll>
       )
     }
 
     return (
       <Typography variant="subtitle2">
-        There is no user whose name is &quot;{keyword}&quot;
+        {/* There is no user whose name is &quot;{keyword}&quot; */}
+        Failed to load data.{' '}
+        <Typography variant="textButton" onClick={() => fetchData()}>
+          Retry
+        </Typography>
       </Typography>
     )
   }

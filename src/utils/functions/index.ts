@@ -1,9 +1,7 @@
 import { FriendInterface } from '@/models'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export function buildQueryStringV2(
-  queryConstants: Record<string, any>
-): string {
+export function buildQueryString(queryConstants: Record<string, any>): string {
   const queryString = Object.keys(queryConstants)
     .map((key) => {
       if (Array.isArray(queryConstants[key])) {
@@ -20,7 +18,7 @@ export function buildQueryStringV2(
   return queryString ? `?${queryString}` : ''
 }
 
-export function parseQueryStringV2(queryString: string): Record<string, any> {
+export function parseQueryString(queryString: string): Record<string, any> {
   /**
    * attention:
    * handle all queries to an array even if they only have a single value.

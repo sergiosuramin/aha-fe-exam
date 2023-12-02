@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material'
-import { useEffect, useRef } from 'react'
 
 import ThImageLoader from '@/components/ui/ThImageLoader'
 import { useScreenSize } from '@/context/MediaQuery'
@@ -7,41 +6,14 @@ import { FriendInterface } from '@/models'
 
 interface UserCardProps {
   user: FriendInterface
-  isLast?: boolean
-  setNewLimit?: () => void
   isOnView?: boolean
 }
 
-const ThUserCard = ({
-  user,
-  isLast = false,
-  isOnView = false,
-  setNewLimit = () => {},
-}: UserCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null)
+const ThUserCard = ({ user, isOnView = false }: UserCardProps) => {
   const { isSmallScreen } = useScreenSize()
 
-  useEffect(() => {
-    // dont need to run infinite loading when viewing the user independently
-    if (!cardRef?.current || isOnView) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (isLast && entry.isIntersecting) {
-          setNewLimit()
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 1 }
-    )
-
-    observer.observe(cardRef.current)
-    // only observe islast
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLast, isOnView])
-
   return (
-    <div ref={cardRef}>
+    <>
       {isOnView ? (
         <div className="tw-mb-8 md:tw-mb-4 tw-min-w-[335] tw-h-auto tw-max-w-[400px]">
           <ThImageLoader
@@ -74,7 +46,7 @@ const ThUserCard = ({
             : 'You have not follow this user'}
         </Typography>
       )}
-    </div>
+    </>
   )
 }
 
