@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material'
-import { useEffect, useRef } from 'react'
 
 import ThButton from '@/components/ui/ThButton'
 import ThImageLoader from '@/components/ui/ThImageLoader'
@@ -8,45 +7,14 @@ import { FriendInterface } from '@/models'
 
 interface FriendContainerProps {
   friend: FriendInterface
-  totalPages: number
-  isLast: boolean
-  setNewLimit: () => void
   onFollowClick: (friendId: string) => void
 }
 
-const ThFriend = ({
-  friend,
-  isLast,
-  setNewLimit,
-  onFollowClick,
-}: FriendContainerProps) => {
-  const friendCardRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!friendCardRef?.current) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (isLast && entry.isIntersecting) {
-          setNewLimit()
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 1 }
-    )
-
-    observer.observe(friendCardRef.current)
-    // only observe islast
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLast])
-
+const ThFriend = ({ friend, onFollowClick }: FriendContainerProps) => {
   const buttonVariant = friend.isFollowing ? 'contained' : 'outlined'
 
   return (
-    <div
-      ref={friendCardRef}
-      className="tw-flex tw-justify-between tw-items-center tw-mb-[22px]"
-    >
+    <>
       <div className="tw-flex tw-gap-x-4">
         <div className="tw-w-[40px] tw-h-[40px]">
           <ThImageLoader
@@ -75,7 +43,7 @@ const ThFriend = ({
           {friend.isFollowing ? 'Following' : 'Follow'}
         </ThButton>
       </div>
-    </div>
+    </>
   )
 }
 

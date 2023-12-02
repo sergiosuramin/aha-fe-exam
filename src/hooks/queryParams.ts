@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { buildQueryStringV2, parseQueryStringV2 } from '@/utils/functions'
+import { buildQueryString, parseQueryString } from '@/utils/functions'
 
 export default function useQueryParams<T>() {
   const router = useRouter()
@@ -8,16 +8,16 @@ export default function useQueryParams<T>() {
   const query = router.query
 
   function setQueryFilter(params: Partial<T>) {
-    // Call buildQueryStringV2 to construct the query string
-    const queryString = buildQueryStringV2(params)
+    // Call buildQueryString to construct the query string
+    const queryString = buildQueryString(params)
 
     // Replace the query part of the URL
     return `${queryString}`
   }
 
   function setQueryParams(params: Partial<T>) {
-    // Call buildQueryStringV2 to construct the query string
-    const queryString = buildQueryStringV2(params)
+    // Call buildQueryString to construct the query string
+    const queryString = buildQueryString(params)
 
     // Replace the query part of the URL
     router.replace(`${pathname}${queryString}`)
@@ -31,7 +31,7 @@ export default function useQueryParams<T>() {
      *    foo_1: ['bar3'],
      *  }
      */
-    return parseQueryStringV2(params)
+    return parseQueryString(params)
   }
 
   return {

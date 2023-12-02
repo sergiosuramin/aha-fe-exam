@@ -15,7 +15,6 @@ declare module '@mui/material/styles' {
     subtitle2Reg: React.CSSProperties
     textButton: React.CSSProperties
     textButtonDanger: React.CSSProperties
-    textButtonLarge: React.CSSProperties
     caption1: React.CSSProperties
     caption2: React.CSSProperties
     labelBig: React.CSSProperties
@@ -30,7 +29,6 @@ declare module '@mui/material/styles' {
     subtitle2Reg?: React.CSSProperties
     textButton?: React.CSSProperties
     textButtonDanger?: React.CSSProperties
-    textButtonLarge?: React.CSSProperties
     caption1?: React.CSSProperties
     caption2?: React.CSSProperties
     labelBig?: React.CSSProperties
@@ -47,7 +45,6 @@ declare module '@mui/material/Typography' {
     subtitle2Reg: true
     textButton: true
     textButtonDanger: true
-    textButtonLarge: true
     caption1: true
     caption2: true
     labelBig: true
@@ -340,7 +337,7 @@ export const theme = createTheme({
       color: 'white',
     },
     textButton: {
-      fontSize: '12px',
+      fontSize: '14px',
       lineHeight: '18px',
       fontWeight: 700,
       textDecoration: 'underline',
@@ -353,13 +350,6 @@ export const theme = createTheme({
       textDecoration: 'underline',
       cursor: 'pointer',
       color: '#cf1c0c',
-    },
-    textButtonLarge: {
-      fontSize: '16px',
-      lineHeight: '18px',
-      textDecoration: 'underline',
-      cursor: 'pointer',
-      color: '#FF9B33',
     },
     body1: {
       fontSize: '14px',
