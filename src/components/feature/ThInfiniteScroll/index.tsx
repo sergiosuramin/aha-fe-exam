@@ -8,18 +8,17 @@ import { FriendInterface } from '@/models'
  * But since infinite scroll feature usually involves a grid layout, It will look like it's a layout.
  *
  * What's in here:
- * Iteration of items which needs to have infinite scroll
+ * Iteration of items that needs an infinite scroll
  * dynamic parentClassName and itemClassName
  *
  * What to do:
  * Insert your child component and desired classes.
  *
- * Note:
- * Sometimes, items in a grid layout is interactive. (ex: "in the same page event" -> click to show in modal).
- * By then, we dont need to run the infinite scroll effect.
+ * This InfiniteScroll component will be triggered if the item is fully visible to screen.
+ * So if your pageSize query is small in such a way that make the last item visibile, infinite scroll will be triggered
  *
- * Infinite Scroll will be triggered if the item is fully visible to screen.
- * So if your pageSize query is small in such a way that make all items visibile, infinite scroll will be triggered
+ * How to know if it is the last item?
+ * This part: ref={index === data.length - 1 ? itemRef : null}
  */
 
 interface InfiniteScrollProps {
