@@ -1,7 +1,7 @@
 import Slider from '@mui/material/Slider'
 
 import { useScreenSize } from '@/context/MediaQuery'
-import { generateMarks } from '@/utils/functions'
+import { generateSliderMarks } from '@/utils/functions'
 
 interface SliderProps {
   value: number | number[] | 0
@@ -16,7 +16,7 @@ function ariaValueText(value: number) {
 
 export default function ThSllider({
   value,
-  min = 0,
+  min = 1,
   max = 50,
   onChange,
 }: SliderProps) {
@@ -33,8 +33,8 @@ export default function ThSllider({
   }
 
   const marker = isExtraSmallScreen
-    ? generateMarks({ max, markToShow: 3 })
-    : generateMarks({ max, markToShow: 6 })
+    ? generateSliderMarks({ max, markToShow: 3 })
+    : generateSliderMarks({ max, markToShow: 6 })
 
   return (
     <Slider

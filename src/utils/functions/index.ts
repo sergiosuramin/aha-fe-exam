@@ -45,18 +45,27 @@ export function parseQueryString(queryString: string): Record<string, any> {
   return queries
 }
 
-export function generateMarks({
+export function generateSliderMarks({
   max,
   markToShow,
 }: {
   max: number
   markToShow: number
 }) {
-  const step = max / (markToShow - 1)
-  return Array.from({ length: markToShow }, (_, index) => ({
-    value: Math.round(index * step),
-    label: Math.round(index * step).toString(),
-  }))
+  const step = max / (markToShow <= 1 ? 1 : markToShow - 1)
+  return Array.from({ length: markToShow }, (_, index) => {
+    if (index === 0) {
+      return {
+        value: 1,
+        label: '1',
+      }
+    } else {
+      return {
+        value: Math.round(index * step),
+        label: Math.round(index * step).toString(),
+      }
+    }
+  })
 }
 
 export function filterIsFollowing(friends: FriendInterface[]) {
