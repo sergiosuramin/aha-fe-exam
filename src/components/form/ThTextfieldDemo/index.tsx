@@ -310,7 +310,11 @@ const ThTextfieldFormDemo = () => {
 
             <Typography variant="subtitle2">
               Experience:{' '}
-              {!!formState.experience ? `${formState.experience} Year` : '-'}
+              {!!formState.experience
+                ? `${formState.experience} ${
+                    Number(formState.experience) > 1 ? 'Years' : 'Year'
+                  }`
+                : '-'}
             </Typography>
 
             <Typography variant="subtitle2">
