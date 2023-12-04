@@ -138,7 +138,7 @@ const ThTextfieldFormDemo = () => {
     <>
       <ThFormLayout>
         <Typography variant="h3" className="tw-font-bold">
-          Textfield
+          Text Field
         </Typography>
 
         <div>
@@ -288,26 +288,33 @@ const ThTextfieldFormDemo = () => {
       >
         <div>
           <ThFormLayout>
-            <Typography variant="subtitle2">Name: {formState.name}</Typography>
-
             <Typography variant="subtitle2">
-              Description: {formState.description}
+              Name: {!!formState.name ? `${formState.name}` : '-'}
             </Typography>
 
             <Typography variant="subtitle2">
-              amount: ${formState.amount}
+              Description:{' '}
+              {!!formState.description ? `${formState.description}` : '-'}
             </Typography>
 
             <Typography variant="subtitle2">
-              Phone Number: ${formState.countryCode}-{formState.phoneNumber}
+              amount: {!!formState.amount ? `$${formState.amount}` : '-'}
             </Typography>
 
             <Typography variant="subtitle2">
-              Experience: {formState.experience} year
+              Phone Number:{' '}
+              {!!formState.phoneNumber
+                ? `${formState.countryCode}-${formState.phoneNumber}`
+                : ''}
             </Typography>
 
             <Typography variant="subtitle2">
-              Password: {formState.password}
+              Experience:{' '}
+              {!!formState.experience ? `${formState.experience} Year` : '-'}
+            </Typography>
+
+            <Typography variant="subtitle2">
+              Password: {formState.password ?? '-'}
             </Typography>
           </ThFormLayout>
         </div>

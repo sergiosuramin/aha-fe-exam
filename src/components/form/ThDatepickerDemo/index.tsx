@@ -94,7 +94,7 @@ const ThDatepickerFormDemo = () => {
     <>
       <ThFormLayout>
         <Typography variant="h3" className="tw-font-bold">
-          DatePicker
+          Date Picker
         </Typography>
 
         <div>
@@ -103,7 +103,7 @@ const ThDatepickerFormDemo = () => {
           </Typography>
 
           <ThDatePickerStatic
-            className="tw-mt-4"
+            className="tw-mt-3"
             label="Birthday"
             name="birthday"
             value={formState.birthday}
@@ -121,7 +121,7 @@ const ThDatepickerFormDemo = () => {
           </Typography>
 
           <ThDatePickerMobile
-            className="tw-mt-4"
+            className="tw-mt-3"
             label="Graduate"
             name="graduateDate"
             value={formState.graduateDate}
@@ -135,7 +135,7 @@ const ThDatepickerFormDemo = () => {
           </Typography>
 
           <ThDatePickerMobile
-            className="tw-mt-4"
+            className="tw-mt-3"
             label="Marriage"
             name="marriageDate"
             orientation="landscape"
@@ -163,15 +163,17 @@ const ThDatepickerFormDemo = () => {
         <div>
           <ThFormLayout>
             <Typography variant="subtitle2">
-              Birthday: {formState.birthday ?? '-'}
+              Birthday: {!!formState.birthday ? formState.birthday : '-'}
             </Typography>
 
             <Typography variant="subtitle2">
-              Graduate: {formState.graduateDate ?? '-'}
+              Graduate:{' '}
+              {!!formState.graduateDate ? formState.graduateDate : '-'}
             </Typography>
 
             <Typography variant="subtitle2">
-              Marriage: {formState.marriageDate ?? '-'}
+              Marriage:{' '}
+              {!!formState.marriageDate ? formState.marriageDate : '-'}
             </Typography>
           </ThFormLayout>
         </div>
