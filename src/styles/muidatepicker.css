@@ -1,0 +1,33 @@
+/* --------------------------------START: Custom MUI DatePicker Style-------------------------------------- */
+/**
+* why override globally
+* this header is made to mimic the MUI V4 datepicker for ALL datepicker component
+* so, dont do it in each component's sx. You will have code duplication
+* and since MUI datepicker is not available in Theme, do it here.
+*
+* IMPORTANT!
+* This is just a workaround to accomodate the desired styling.
+* 
+* Suggestions:
+* Following the default styling corresponding to the installed version still the best approach.
+*/
+
+.MuiPickersCalendarHeader-labelContainer {
+  /* this is the month and it's year dropdown */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  z-index: 10 !important; /*this is a must! */
+}
+
+.MuiPickersArrowSwitcher-root {
+  /* this is the next/prev arrow */
+  max-width: 285px; /* make sure the switcher dimension is consistent across all datepicker*/
+  margin-left: auto; /*make sure it doesnt overlapped the selected date view when orientation is landscape */
+  display: flex !important;
+  justify-content: space-between !important;
+  position: absolute !important;
+  left: 16px !important;
+  right: 16px !important;
+}
+
+/* --------------------------------END: Custom MUI DatePicker Style-------------------------------------- */

@@ -1,3 +1,5 @@
+import dayjs, { Dayjs } from 'dayjs'
+
 import { FriendInterface } from '@/models'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -84,6 +86,18 @@ export function toggleFollowingStatus(
 }
 
 // -----------------------------START: form strength functions-----------------------------
+export function checkDateValidity(d: Dayjs) {
+  return dayjs(d).isValid()
+}
+
+export function checkBirthdayValidity(d: Dayjs) {
+  const today = dayjs()
+
+  const isBirthdayValid = !d.isAfter(today, 'day')
+
+  return isBirthdayValid
+}
+
 export function CheckIsNumeric(s: string) {
   const isNumeric = /^\d+$/.test(s)
 
