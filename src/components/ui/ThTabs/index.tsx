@@ -62,7 +62,9 @@ export default function ThTabs({ tabs }: TabsProps) {
               key={index}
               id={`tab-${index}`}
               label={tab.title}
-              className={getTabclassName(index)}
+              className={`tw-normal-case tw-text-[1rem] ${getTabclassName(
+                index
+              )}`}
             />
           ))}
         </Tabs>

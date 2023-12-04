@@ -29,7 +29,10 @@ const ThFriend = ({ friend, onFollowClick }: FriendContainerProps) => {
           <Typography variant="subtitle2Reg" className="tw-line-clamp-1">
             {friend.name}
           </Typography>
-          <Typography variant="subtitle2Reg" className="tw-line-clamp-1">
+          <Typography
+            variant="subtitle2Reg"
+            className="tw-opacity-50 tw-line-clamp-1"
+          >
             @{friend.username}
           </Typography>
         </div>
