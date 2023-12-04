@@ -5,17 +5,18 @@ import { FriendInterface } from '@/models'
 /**
  * This component is used as infinite scroll container.
  * This is not a layout, but more like a wrapper for any items that needs an infinite scroll.
- * But since infinite scroll feature usually involves a grid layout, It will look like it's a layout.
+ * But since infinite scroll feature usually involves a grid layout, it will appear as if it's a layout.
  *
  * What's in here:
- * Iteration of items that needs an infinite scroll
+ * Iteration for items that needs an infinite scroll
  * dynamic parentClassName and itemClassName
  *
  * What to do:
- * Insert your child component and desired classes.
+ * Insert your child component and desired classes as props.
  *
  * This InfiniteScroll component will be triggered if the item is fully visible to screen.
- * So if your pageSize query is small in such a way that make the last item visibile, infinite scroll will be triggered
+ * So if your pageSize query is small in such a way that makes the last item fully visibile,
+ * infinite scroll will be triggered
  *
  * How to know if it is the last item?
  * This part: ref={index === data.length - 1 ? itemRef : null}
@@ -65,7 +66,7 @@ const ThInfiniteScroll = ({
         observer.unobserve(currentRef)
       }
     }
-    // only observer data changes (occured when setNewLimit is triggered)
+    // only observes the data changes (occured after setNewLimit is triggered)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
