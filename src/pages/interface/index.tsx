@@ -12,7 +12,7 @@ const InterfacePage = () => {
             UI/UX Components Demo
           </Typography>
 
-          <div className="tw-grid lg:tw-grid-cols-2 tw-gap-6 tw-rounded-xl tw-rounded-white tw-p-4">
+          <div className="tw-grid lg:tw-grid-cols-2 tw-gap-6 tw-rounded-xl tw-rounded-white-500 tw-p-4">
             <div>
               <ThDatepickerFormDemo />
             </div>

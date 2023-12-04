@@ -45,7 +45,8 @@ export default function ThTabs({ tabs }: TabsProps) {
   }
 
   const getTabclassName = (index: number) => {
-    if (index === value) return 'tw-text-white tw-font-bold'
+    if (index === value) return 'tw-text-white-500 tw-font-bold'
+    else return ''
   }
 
   return (

@@ -135,7 +135,9 @@ export const theme = createTheme({
           props: { variant: 'contained' },
           style: {
             backgroundColor: '#FFF !important',
-            color: '#000',
+            fontSize: '12px',
+            color: '#121212',
+            fontWeight: '600',
             width: '100%',
             height: '29px',
             boxShadow: 'none',
@@ -158,7 +160,9 @@ export const theme = createTheme({
           props: { variant: 'outlined' },
           style: {
             backgroundColor: '#121212 !important',
+            fontSize: '12px',
             color: '#FFF',
+            fontWeight: '600',
             width: '100%',
             height: '29px',
             boxShadow: 'none',
@@ -168,7 +172,7 @@ export const theme = createTheme({
             ':hover': {
               backgroundColor: '#FFF !important',
               boxShadow: 'none',
-              color: '#000 !important',
+              color: '#121212 !important',
               border: '1px solid #fff !important',
             },
             ':disabled': {
@@ -186,6 +190,11 @@ export const theme = createTheme({
           // Customize the root style of outlined TextField
           borderRadius: '6px',
           color: 'white',
+          '& .MuiOutlinedInput-input': {
+            '&::placeholder': {
+              opacity: '30%',
+            },
+          },
           '& .MuiOutlinedInput-notchedOutline': {
             borderColor: 'rgba(255, 255, 255, 0.5) !important', // White 50% on normal
             borderWidth: '3px',

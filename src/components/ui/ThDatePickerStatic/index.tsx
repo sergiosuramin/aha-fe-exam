@@ -57,7 +57,7 @@ export default function ThDatePickerStatic({
       />
 
       {isFocused && (
-        <div className="tw-absolute tw-mt-2 tw-z-30 tw-left-0 tw-right-0 tw-rounded-xl tw-shadow-invert-xl tw-bg-white">
+        <div className="tw-absolute tw-mt-2 tw-z-30 tw-left-0 tw-right-0 tw-rounded-xl tw-shadow-invert-xl tw-bg-white-500">
           <LocalizationProvider
             dateAdapter={AdapterDayjs}
             adapterLocale="en-au"

@@ -58,14 +58,20 @@ const config: Config = {
         black: {
           200: '#494E53',
           300: '#393939',
+          350: '#1B1B1B',
           400: '#181818',
           500: '#000000',
         },
         lightgreen: {
           500: '#A4A537',
         },
-        white: '#fff',
+        white: {
+          500: '#fff',
+        },
         default: '#3F4355', // default color text
+      },
+      opacity: {
+        6: '.06',
       },
     },
     screens: {

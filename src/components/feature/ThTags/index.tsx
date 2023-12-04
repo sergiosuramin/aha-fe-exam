@@ -9,7 +9,7 @@ interface TagsProps {
 const ThTags = ({ tag }: TagsProps) => {
   return (
     <div>
-      <div className="tw-flex tw-w-[150px] tw-h-[150px] tw-rounded-[10px] tw-bg-gray-50/5 tw-p-2">
+      <div className="tw-flex tw-w-[150px] tw-h-[150px] tw-rounded-[10px] tw-bg-white-500/6 tw-p-2">
         <div className="tw-mt-auto tw-border-[4px] tw-rounded-[8px] tw-p-2 tw-max-w-[136px]">
           <Typography variant="h3" className="tw-font-bold tw-line-clamp-1">
             {tag.name ?? ''}
@@ -23,7 +23,7 @@ const ThTags = ({ tag }: TagsProps) => {
             {tag.name ?? ''}
           </Typography>
         </div>
-        <Typography variant="subtitle2Reg" className="tw-text-gray-100/50">
+        <Typography variant="subtitle2Reg" className="tw-text-gray-300">
           {tag.count ?? ''} Questions
         </Typography>
       </div>

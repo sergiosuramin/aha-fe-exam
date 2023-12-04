@@ -3,16 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 24, 24, 24;
+  --background-end-rgb: 24, 24, 24;
+  --scrollbar-color: rgba(255, 255, 255, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 18, 18, 18;
-    --background-end-rgb: 18, 18, 18;
+    --background-start-rgb: 24, 24, 24;
+    --background-end-rgb: 24, 24, 24;
+    --scrollbar-color: rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -45,18 +47,18 @@ body,
 /* Define the custom scrollbar track */
 .tw-overflow-y-scroll {
   scrollbar-width: thin !important;
-  scrollbar-color: #9fa1a7; /* Customize the colors as needed */
+  scrollbar-color: var(--scrollbar-color); /* Customize the colors as needed */
 }
 
 /* Define the custom scrollbar thumb */
 .tw-overflow-y-scroll::-webkit-scrollbar-thumb {
-  background-color: #9fa1a7; /* Customize the color as needed */
+  background-color: var(--scrollbar-color); /* Customize the color as needed */
   border-radius: 6px;
 }
 
 /* Define the custom scrollbar thumb on hover */
 .tw-overflow-y-scroll:hover::-webkit-scrollbar-thumb {
-  background-color: #9fa1a7; /* Customize the color as needed */
+  background-color: var(--scrollbar-color); /* Customize the color as needed */
 }
 
 /* For Firefox */
@@ -71,6 +73,6 @@ html {
 
 /* To style the scrollbar */
 html {
-  scrollbar-color: #9fa1a7 #f1f1f1;
+  scrollbar-color: var(--scrollbar-color) #f1f1f1;
 }
 /* END: scrollbar */

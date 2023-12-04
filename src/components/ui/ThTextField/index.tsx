@@ -94,9 +94,9 @@ function ThTextfield({
           edge="end"
         >
           {hidePassword ? (
-            <Visibility className="tw-text-white" />
+            <Visibility className="tw-text-white-500" />
           ) : (
-            <VisibilityOff className="tw-text-white" />
+            <VisibilityOff className="tw-text-white-500" />
           )}
         </IconButton>
       )
@@ -115,7 +115,10 @@ function ThTextfield({
     <div>
       {label && !isMuiDefault && (
         <div>
-          <Typography variant="labelBig" className="tw-text-white tw-uppercase">
+          <Typography
+            variant="labelBig"
+            className="tw-text-white-500 tw-uppercase"
+          >
             {label}
           </Typography>
         </div>
