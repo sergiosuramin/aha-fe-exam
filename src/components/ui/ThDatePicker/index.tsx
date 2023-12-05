@@ -110,7 +110,7 @@ export default function ThDatePicker({
             onDateChange(name, newValue) // to accomodate change from keyboard input
           }}
           onAccept={(newValue) => {
-            onDateChange(name, newValue) // handle on date change onAccept Click
+            onDateChange(name, newValue) // handle date changes onAccept Click
             handleSetOpen()
           }}
           open={open}
