@@ -2,6 +2,8 @@ import { MobileDatePicker } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import dayjs, { Dayjs } from 'dayjs'
+
+import { useScreenSize } from '@/context/MediaQuery'
 import 'dayjs/locale/en-au'
 
 interface DatePickerProps {
@@ -25,6 +27,10 @@ export default function ThDatePickerMobile({
   onDateChange,
   className = '',
 }: DatePickerProps) {
+  const { isSmallScreen } = useScreenSize()
+  /** force portrait orientation on mobile for straightforward experience */
+  const pickerOrientation = isSmallScreen ? 'portrait' : orientation
+
   return (
     <div className="tw-w-full">
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-au">
@@ -35,7 +41,7 @@ export default function ThDatePickerMobile({
           showDaysOutsideCurrentMonth
           disableFuture={disableFuture}
           disablePast={disablePast}
-          orientation={orientation}
+          orientation={pickerOrientation}
           onAccept={(newValue) => {
             onDateChange(name, newValue) // handle on date change onAccept Click
           }}

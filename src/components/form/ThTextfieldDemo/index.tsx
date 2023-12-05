@@ -197,10 +197,12 @@ const ThTextfieldFormDemo = () => {
           />
         </div>
 
+        <Typography variant="h3" className="tw-font-bold tw-mt-6">
+          With Start Adornment
+        </Typography>
+
         <div>
-          <Typography variant="subtitle1Reg">
-            Start Adornment (Currency: number only)
-          </Typography>
+          <Typography variant="subtitle1Reg">Currency: number only</Typography>
           <ThTextfield
             className="tw-mt-3"
             isMuiDefault
@@ -214,9 +216,7 @@ const ThTextfieldFormDemo = () => {
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">
-            Interactive Start Adornment
-          </Typography>
+          <Typography variant="subtitle1Reg">Interactive</Typography>
           <ThTextfield
             className="tw-mt-3"
             isMuiDefault
@@ -234,10 +234,12 @@ const ThTextfieldFormDemo = () => {
           />
         </div>
 
+        <Typography variant="h3" className="tw-font-bold tw-mt-6">
+          With End Adornment
+        </Typography>
+
         <div>
-          <Typography variant="subtitle1Reg">
-            End Adornment (Year: number only)
-          </Typography>
+          <Typography variant="subtitle1Reg">Year: number only</Typography>
           <ThTextfield
             className="tw-mt-3"
             isMuiDefault
@@ -252,7 +254,7 @@ const ThTextfieldFormDemo = () => {
 
         <div>
           <Typography variant="subtitle1Reg">
-            Password With Validation (Interactive End Adornment)
+            Interactive (With Validation)
           </Typography>
           <ThTextfield
             className="tw-mt-3"
@@ -305,7 +307,7 @@ const ThTextfieldFormDemo = () => {
               Phone Number:{' '}
               {!!formState.phoneNumber
                 ? `${formState.countryCode}-${formState.phoneNumber}`
-                : ''}
+                : '-'}
             </Typography>
 
             <Typography variant="subtitle2">

@@ -1,15 +1,21 @@
 /* --------------------------------START: Custom MUI DatePicker Style-------------------------------------- */
 /**
 * why override globally
-* this header is made to mimic the MUI V4 datepicker for ALL datepicker component
+* this header is made to mimic the MUI V4 datepicker for ALL datepicker component across the apps
 * so, dont do it in each component's sx. You will have code duplication
-* and since MUI datepicker is not available in Theme, do it here.
+* MUI datepicker is not available in Theme and and overriding them in sx was unsuccessful,
+* hence, do it here.
 *
 * IMPORTANT!
 * This is just a workaround to accomodate the desired styling.
+* Workaround will always have a limit.
+*
+* Related article with similar issue:
+* https://github.com/mui/mui-x/issues/6218
+* "In usual DatePicker the sx prop won't work as it is not propagated to the popper/modal, which is opened and appended to the bottom of body (be default)."
 * 
 * Suggestions:
-* Following the default styling corresponding to the installed version still the best approach.
+* Follow the default styling corresponding to the installed version.
 */
 
 .MuiPickersCalendarHeader-labelContainer {

@@ -5,6 +5,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import dayjs, { Dayjs } from 'dayjs'
 import { useState } from 'react'
 
+import { useScreenSize } from '@/context/MediaQuery'
 import { checkDateValidity } from '@/utils/functions'
 
 type DatePickerActions = 'clear' | 'today'
@@ -40,7 +41,10 @@ export default function ThDatePicker({
   isFieldReadOnly = false,
   moreActions = [],
 }: DatePickerProps) {
+  const { isSmallScreen } = useScreenSize()
   const [open, setOpen] = useState<boolean>(false)
+  /** force portrait orientation on mobile for straightforward experience */
+  const pickerOrientation = isSmallScreen ? 'portrait' : orientation
 
   const handleSetOpen = () => {
     setOpen(!open)
@@ -49,6 +53,7 @@ export default function ThDatePicker({
   // DatePickerToolbar
   const CustomToolbar = (props: DatePickerToolbarProps<Dayjs>) => {
     const { className, value } = props
+    const isLandscape = orientation === 'landscape'
 
     const renderToolbarValue = () => {
       const isDateValid = checkDateValidity(dayjs(value))
@@ -63,12 +68,14 @@ export default function ThDatePicker({
         // Pass the className to the root element to get correct layout
         className={`tw-mx-6 tw-pt-4 ${className}`}
       >
-        <div className="tw-flex tw-flex-col">
+        <div className="tw-flex tw-flex-col tw-h-[100%]">
           <Typography variant="subtitle1Reg" className="tw-mb-3">
             {toolbarLabel}
           </Typography>
 
-          <Typography variant="display2">{renderToolbarValue()}</Typography>
+          <div className={isLandscape ? 'tw-my-auto' : ''}>
+            <Typography variant="display2">{renderToolbarValue()}</Typography>
+          </div>
         </div>
       </Box>
     )
@@ -98,7 +105,7 @@ export default function ThDatePicker({
           showDaysOutsideCurrentMonth
           disableFuture={disableFuture}
           disablePast={disablePast}
-          orientation={orientation}
+          orientation={pickerOrientation}
           onChange={(newValue) => {
             onDateChange(name, newValue) // to accomodate change from keyboard input
           }}

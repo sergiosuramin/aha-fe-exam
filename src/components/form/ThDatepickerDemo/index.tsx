@@ -18,6 +18,7 @@ import { checkBirthdayValidity, checkDateValidity } from '@/utils/functions'
 interface FormProps {
   birthday: string
   examDate: string
+  landscape: string
   graduateDate: string
   marriageDate: string
   readOnly: string
@@ -27,6 +28,7 @@ const ThDatepickerFormDemo = () => {
   const [formState, setFormState] = useState<FormProps>({
     birthday: '',
     examDate: '',
+    landscape: '',
     graduateDate: '',
     marriageDate: '',
     readOnly: '',
@@ -37,6 +39,7 @@ const ThDatepickerFormDemo = () => {
     setFormState({
       birthday: '',
       examDate: '',
+      landscape: '',
       graduateDate: '',
       marriageDate: '',
       readOnly: '',
@@ -140,14 +143,12 @@ const ThDatepickerFormDemo = () => {
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">
-            Default (With More Action and Helper)
-          </Typography>
+          <Typography variant="subtitle1Reg">With More Action</Typography>
 
           <ThDatePicker
             className="tw-mt-3"
             label="Final Exam *"
-            toolbarLabel="I'll remind you your exam"
+            toolbarLabel="Set your exam reminder"
             name="examDate"
             value={formState.examDate}
             onDateChange={onDateChange}
@@ -158,8 +159,25 @@ const ThDatepickerFormDemo = () => {
 
         <div>
           <Typography variant="subtitle1Reg">
-            Default (Desktop: interact from calendar button, read-only
-            textfield)
+            Landscape (Desktop Only)
+          </Typography>
+
+          <ThDatePicker
+            className="tw-mt-3"
+            label="Landscape"
+            toolbarLabel="Landscape datepicker"
+            name="landscape"
+            orientation="landscape"
+            value={formState.landscape}
+            onDateChange={onDateChange}
+            moreActions={['clear', 'today']}
+            helperText={renderHelperText('landscape', formState.landscape)}
+          />
+        </div>
+
+        <div>
+          <Typography variant="subtitle1Reg">
+            Interact from calendar button, read-only textfield
           </Typography>
 
           <ThDatePicker
@@ -190,7 +208,9 @@ const ThDatepickerFormDemo = () => {
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">Default - Landscape</Typography>
+          <Typography variant="subtitle1Reg">
+            Default - Landscape (Desktop Only)
+          </Typography>
 
           <ThDatePickerMobile
             className="tw-mt-3"
