@@ -7,7 +7,7 @@ Created by: Sergio Suramin, S.Kom
 
 ### 1. Languages and Libraries
 
-- Next.js 13 (React.js)
+- Next.js 14 (React.js)
 - Typescript
 - Material UI v5
 - Tailwind CSS v3
