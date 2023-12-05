@@ -36,4 +36,11 @@
   right: 16px !important;
 }
 
+/*For clarity, change the hover styles to a more contrast color*/
+.MuiPickersYear-yearButton:hover,
+.MuiPickersDay-root:hover {
+  background-color: white;
+  color: #121212;
+}
+
 /* --------------------------------END: Custom MUI DatePicker Style-------------------------------------- */
