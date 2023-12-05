@@ -66,7 +66,7 @@ const config: Config = {
           500: '#A4A537',
         },
         white: {
-          500: '#fff',
+          500: '#ffffff',
         },
         default: '#3F4355', // default color text
       },
