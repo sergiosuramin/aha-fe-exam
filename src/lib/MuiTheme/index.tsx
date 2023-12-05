@@ -254,9 +254,9 @@ export const theme = createTheme({
         },
         root: {
           paddingTop: '1.25rem !important',
-          selected: {
+          '& .Mui-selected': {
             color: '#FFF !important',
-            fontWeight: '700',
+            fontWeight: '700 !important',
           },
         },
       },
