@@ -285,6 +285,17 @@ const ThTextfieldFormDemo = () => {
         </ThButton>
       </ThFormLayout>
 
+      <div>
+        <Typography variant="labelSmall" className="tw-text-gray-300">
+          Required fields: Password
+        </Typography>
+      </div>
+      <div>
+        <Typography variant="labelSmall" className="tw-text-gray-300">
+          On submit: Name, Description, Amount, Phone, Experience, Password
+        </Typography>
+      </div>
+
       <ThDialog
         open={open}
         handleClose={onOpenChange}
