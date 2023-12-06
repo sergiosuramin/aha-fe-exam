@@ -221,10 +221,12 @@ const ThDatepickerFormDemo = () => {
           />
         </div>
 
+        <Typography variant="h3" className="tw-font-bold tw-mt-6">
+          Interact From Calendar Button, Read-only Textfield
+        </Typography>
+
         <div>
-          <Typography variant="subtitle1Reg">
-            Interact from calendar button, read-only textfield
-          </Typography>
+          <Typography variant="subtitle1Reg">Default</Typography>
 
           <ThDatePicker
             className="tw-mt-3"
@@ -238,7 +240,7 @@ const ThDatepickerFormDemo = () => {
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">Disable Specific Day</Typography>
+          <Typography variant="subtitle1Reg">With Disabled Day</Typography>
 
           <ThDatePicker
             className="tw-mt-3"
@@ -248,11 +250,12 @@ const ThDatepickerFormDemo = () => {
             value={formState.disableSunday}
             onDateChange={onDateChange}
             shouldDisableDate={handleDisableSunday}
+            isFieldReadOnly
           />
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">Disable Specific Dates</Typography>
+          <Typography variant="subtitle1Reg">With Disabled Dates</Typography>
 
           <ThDatePicker
             className="tw-mt-3"
@@ -262,6 +265,7 @@ const ThDatepickerFormDemo = () => {
             value={formState.disableSpecificDay}
             onDateChange={onDateChange}
             shouldDisableDate={handleDisableSpecificDay}
+            isFieldReadOnly
           />
         </div>
 
