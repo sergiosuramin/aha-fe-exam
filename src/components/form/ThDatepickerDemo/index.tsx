@@ -258,8 +258,8 @@ const ThDatepickerFormDemo = () => {
             className="tw-mt-3"
             label="Disable Holidays"
             toolbarLabel="We are closed on international holiday"
-            name="disableSunday"
-            value={formState.disableSunday}
+            name="disableSpecificDay"
+            value={formState.disableSpecificDay}
             onDateChange={onDateChange}
             shouldDisableDate={handleDisableSpecificDay}
           />
