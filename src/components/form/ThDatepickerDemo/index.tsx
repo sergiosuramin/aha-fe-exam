@@ -306,9 +306,16 @@ const ThDatepickerFormDemo = () => {
         </ThButton>
       </ThFormLayout>
 
-      <Typography variant="labelSmall" className="tw-text-gray-300">
-        Required fields: Birthday & Final Exam
-      </Typography>
+      <div>
+        <Typography variant="labelSmall" className="tw-text-gray-300">
+          Required fields: Birthday & Final Exam
+        </Typography>
+      </div>
+      <div>
+        <Typography variant="labelSmall" className="tw-text-gray-300">
+          On submit: Birthday, Final Exam, Graduate, Marriage
+        </Typography>
+      </div>
 
       <ThDialog
         open={open}
