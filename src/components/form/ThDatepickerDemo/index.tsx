@@ -251,7 +251,7 @@ const ThDatepickerFormDemo = () => {
           <ThDatePicker
             className="tw-mt-3"
             label="Read Only"
-            toolbarLabel="We are closed on Sunday"
+            toolbarLabel="We are closed on international holiday"
             name="disableSunday"
             value={formState.disableSunday}
             onDateChange={onDateChange}
