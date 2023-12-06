@@ -1,5 +1,11 @@
-import { Box, Typography } from '@mui/material'
-import { DatePicker, DatePickerToolbarProps } from '@mui/x-date-pickers'
+import BlockIcon from '@mui/icons-material/Block'
+import { Badge, Box, Typography } from '@mui/material'
+import {
+  DatePicker,
+  DatePickerToolbarProps,
+  PickersDay,
+  PickersDayProps,
+} from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import dayjs, { Dayjs } from 'dayjs'
@@ -15,6 +21,7 @@ interface DatePickerProps {
   label: string
   value: string
   onDateChange: (name: string, newValue: Dayjs | null) => void
+  shouldDisableDate?: (date: Dayjs) => boolean
   toolbarLabel?: string
   orientation?: 'portrait' | 'landscape'
   disableFuture?: boolean
@@ -31,6 +38,7 @@ export default function ThDatePicker({
   label,
   value,
   onDateChange,
+  shouldDisableDate = () => false,
   toolbarLabel = 'Select Date',
   orientation = 'portrait',
   disableFuture = false,
@@ -81,6 +89,25 @@ export default function ThDatePicker({
     )
   }
 
+  const CustomPickersDay = (props: PickersDayProps<Dayjs>) => {
+    const { day, disabled } = props
+    const isDayDisabled = disabled ?? false
+
+    return (
+      <Badge
+        key={day.toString()}
+        overlap="circular"
+        badgeContent={
+          isDayDisabled ? (
+            <BlockIcon className="tw-text-danger-500 tw-w-2.5 tw-h-2.5" />
+          ) : undefined
+        }
+      >
+        <PickersDay {...props} />
+      </Badge>
+    )
+  }
+
   return (
     <div className="tw-w-full">
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-au">
@@ -90,6 +117,7 @@ export default function ThDatePicker({
           value={value ? dayjs(value) : null}
           slots={{
             toolbar: CustomToolbar,
+            day: CustomPickersDay,
           }}
           slotProps={{
             actionBar: {
@@ -102,6 +130,7 @@ export default function ThDatePicker({
               readOnly: isFieldReadOnly,
             },
           }}
+          shouldDisableDate={shouldDisableDate}
           showDaysOutsideCurrentMonth
           disableFuture={disableFuture}
           disablePast={disablePast}

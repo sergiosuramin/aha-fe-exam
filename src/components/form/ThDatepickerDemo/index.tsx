@@ -17,6 +17,9 @@ import { checkBirthdayValidity, checkDateValidity } from '@/utils/functions'
  */
 interface FormProps {
   birthday: string
+  default: string
+  disableSunday: string
+  disableSpecificDay: string
   examDate: string
   landscape: string
   graduateDate: string
@@ -27,6 +30,9 @@ interface FormProps {
 const ThDatepickerFormDemo = () => {
   const [formState, setFormState] = useState<FormProps>({
     birthday: '',
+    default: '',
+    disableSunday: '',
+    disableSpecificDay: '',
     examDate: '',
     landscape: '',
     graduateDate: '',
@@ -38,6 +44,9 @@ const ThDatepickerFormDemo = () => {
   const onResetForm = () => {
     setFormState({
       birthday: '',
+      default: '',
+      disableSunday: '',
+      disableSpecificDay: '',
       examDate: '',
       landscape: '',
       graduateDate: '',
@@ -57,6 +66,25 @@ const ThDatepickerFormDemo = () => {
       ...prev,
       [name]: !!value ? dayjs(value).format('DD MMM YYYY') : '',
     }))
+  }
+
+  const handleDisableSunday = (date: Dayjs) => {
+    // disable sunday
+    return date.day() === 0
+  }
+
+  const handleDisableSpecificDay = (date: Dayjs) => {
+    // disable specific array of dates
+    const disabledDates = [
+      '2023-12-07',
+      '2023-12-25',
+      '2023-12-31',
+      '2024-01-01',
+    ]
+
+    return disabledDates.some((disabledDate) =>
+      dayjs(disabledDate).isSame(date, 'day')
+    )
   }
 
   const submitButtonEligibility = () => {
@@ -130,6 +158,22 @@ const ThDatepickerFormDemo = () => {
 
           <ThDatePicker
             className="tw-mt-3"
+            label="Default"
+            toolbarLabel="Select Date"
+            name="default"
+            value={formState.default}
+            onDateChange={onDateChange}
+            helperText={renderHelperText('default', formState.default)}
+          />
+        </div>
+
+        <div>
+          <Typography variant="subtitle1Reg">
+            Birthday (Disable Future)
+          </Typography>
+
+          <ThDatePicker
+            className="tw-mt-3"
             label="Birthday *"
             toolbarLabel="When is your birthday?"
             name="birthday"
@@ -187,6 +231,34 @@ const ThDatepickerFormDemo = () => {
           />
         </div>
 
+        <div>
+          <Typography variant="subtitle1Reg">Disable Specific Day</Typography>
+
+          <ThDatePicker
+            className="tw-mt-3"
+            label="Read Only"
+            toolbarLabel="We are closed on Sunday"
+            name="disableSunday"
+            value={formState.disableSunday}
+            onDateChange={onDateChange}
+            shouldDisableDate={handleDisableSunday}
+          />
+        </div>
+
+        <div>
+          <Typography variant="subtitle1Reg">Disable Specific Dates</Typography>
+
+          <ThDatePicker
+            className="tw-mt-3"
+            label="Read Only"
+            toolbarLabel="We are closed on Sunday"
+            name="disableSunday"
+            value={formState.disableSunday}
+            onDateChange={onDateChange}
+            shouldDisableDate={handleDisableSpecificDay}
+          />
+        </div>
+
         <Typography variant="h3" className="tw-font-bold tw-mt-6">
           Mobile Date Picker
         </Typography>
@@ -227,6 +299,10 @@ const ThDatepickerFormDemo = () => {
           Submit
         </ThButton>
       </ThFormLayout>
+
+      <Typography variant="labelSmall" className="tw-text-gray-300">
+        Required fields: Birthday & Final Exam
+      </Typography>
 
       <ThDialog
         open={open}
