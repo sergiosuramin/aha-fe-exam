@@ -7,7 +7,12 @@ import ThButton from '@/components/ui/ThButton'
 import ThDatePicker from '@/components/ui/ThDatePicker'
 import ThDatePickerMobile from '@/components/ui/ThDatePickerMobile'
 import ThDialog from '@/components/ui/ThDialog'
-import { checkBirthdayValidity, checkDateValidity } from '@/utils/functions'
+import {
+  checkBirthdayValidity,
+  checkDateValidity,
+  checkDayIsSunday,
+  checkSpecificDates,
+} from '@/utils/functions'
 
 /**
  * Since this page is made for demo,
@@ -70,7 +75,8 @@ const ThDatepickerFormDemo = () => {
 
   const handleDisableSunday = (date: Dayjs) => {
     // disable sunday
-    return date.day() === 0
+    const isSunday = checkDayIsSunday(date)
+    return isSunday
   }
 
   const handleDisableSpecificDay = (date: Dayjs) => {
@@ -82,9 +88,9 @@ const ThDatepickerFormDemo = () => {
       '2024-01-01',
     ]
 
-    return disabledDates.some((disabledDate) =>
-      dayjs(disabledDate).isSame(date, 'day')
-    )
+    const holidays = checkSpecificDates(date, disabledDates)
+
+    return holidays
   }
 
   const submitButtonEligibility = () => {
@@ -236,7 +242,7 @@ const ThDatepickerFormDemo = () => {
 
           <ThDatePicker
             className="tw-mt-3"
-            label="Read Only"
+            label="Disable Sunday"
             toolbarLabel="We are closed on Sunday"
             name="disableSunday"
             value={formState.disableSunday}
@@ -250,7 +256,7 @@ const ThDatepickerFormDemo = () => {
 
           <ThDatePicker
             className="tw-mt-3"
-            label="Read Only"
+            label="Disable Holidays"
             toolbarLabel="We are closed on international holiday"
             name="disableSunday"
             value={formState.disableSunday}

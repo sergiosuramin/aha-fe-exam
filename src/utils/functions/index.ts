@@ -85,6 +85,16 @@ export function toggleFollowingStatus(
   )
 }
 
+export function checkDayIsSunday(d: Dayjs) {
+  // Disable Sunday
+  return d.day() === 0
+}
+
+export function checkSpecificDates(d: Dayjs, arr: string[]) {
+  // Disable specific array of dates
+  return arr.find((item) => dayjs(item).isSame(d, 'day')) !== undefined
+}
+
 // -----------------------------START: form strength functions-----------------------------
 export function checkDateValidity(d: Dayjs) {
   return dayjs(d).isValid()

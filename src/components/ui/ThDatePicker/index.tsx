@@ -130,10 +130,10 @@ export default function ThDatePicker({
               readOnly: isFieldReadOnly,
             },
           }}
-          shouldDisableDate={shouldDisableDate}
           showDaysOutsideCurrentMonth
           disableFuture={disableFuture}
           disablePast={disablePast}
+          shouldDisableDate={shouldDisableDate}
           orientation={pickerOrientation}
           onChange={(newValue) => {
             onDateChange(name, newValue) // to accomodate change from keyboard input
