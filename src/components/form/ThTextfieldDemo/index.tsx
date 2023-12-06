@@ -202,7 +202,9 @@ const ThTextfieldFormDemo = () => {
         </Typography>
 
         <div>
-          <Typography variant="subtitle1Reg">Currency: number only</Typography>
+          <Typography variant="subtitle1Reg">
+            Static (Currency: number only)
+          </Typography>
           <ThTextfield
             className="tw-mt-3"
             isMuiDefault
@@ -216,7 +218,7 @@ const ThTextfieldFormDemo = () => {
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">Interactive</Typography>
+          <Typography variant="subtitle1Reg">Custom (Interactive)</Typography>
           <ThTextfield
             className="tw-mt-3"
             isMuiDefault
@@ -239,7 +241,9 @@ const ThTextfieldFormDemo = () => {
         </Typography>
 
         <div>
-          <Typography variant="subtitle1Reg">Year: number only</Typography>
+          <Typography variant="subtitle1Reg">
+            Static (Year: number only)
+          </Typography>
           <ThTextfield
             className="tw-mt-3"
             isMuiDefault
@@ -254,7 +258,7 @@ const ThTextfieldFormDemo = () => {
 
         <div>
           <Typography variant="subtitle1Reg">
-            Interactive (With Validation)
+            Custom (Interactive, With Validation)
           </Typography>
           <ThTextfield
             className="tw-mt-3"

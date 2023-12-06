@@ -122,13 +122,11 @@ const ThDatepickerFormDemo = () => {
     <>
       <ThFormLayout>
         <Typography variant="h3" className="tw-font-bold">
-          Date Picker (Custom Toolbar)
+          Date Picker (With Custom Toolbar)
         </Typography>
 
         <div>
-          <Typography variant="subtitle1Reg">
-            Default (With Action and Helper)
-          </Typography>
+          <Typography variant="subtitle1Reg">Default</Typography>
 
           <ThDatePicker
             className="tw-mt-3"
@@ -158,9 +156,7 @@ const ThDatepickerFormDemo = () => {
         </div>
 
         <div>
-          <Typography variant="subtitle1Reg">
-            Landscape (Desktop Only)
-          </Typography>
+          <Typography variant="subtitle1Reg">Landscape (Responsive)</Typography>
 
           <ThDatePicker
             className="tw-mt-3"
@@ -209,7 +205,7 @@ const ThDatepickerFormDemo = () => {
 
         <div>
           <Typography variant="subtitle1Reg">
-            Default - Landscape (Desktop Only)
+            Default - Landscape (Responsive)
           </Typography>
 
           <ThDatePickerMobile
